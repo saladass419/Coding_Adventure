@@ -5,7 +5,7 @@ std::string Reader::read(char symbol) {
 	std::ifstream file;
 	file.open("abilities.txt");
 	std::string text;
-	std::string *data = new std::string[2];
+	auto *data = new std::string[2];
 	while (std::getline(file, text)){
 		if (text[0] == symbol) {
 			break;

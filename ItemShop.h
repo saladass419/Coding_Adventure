@@ -15,7 +15,7 @@ public:
 			data[i] = new Symbol;
 		}
 	}
-	~ItemShop() {}
+	~ItemShop() = default;
 
 	void printList() override;
 	void fillShop() override;

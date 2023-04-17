@@ -11,15 +11,15 @@ private:
 	int removers;
 public:
 	Player() :money(0), rerollers(1), removers(1) {}
-	~Player() {}
+	~Player() = default;
 
-	long getMoney() { return money; }
-	int getToken(std::string token);
+	long getMoney() const { return money; }
+	int getToken(const std::string& token) const;
 
 	void addToMoney(long _money) { money += _money; }
-	void gainToken(std::string token, int amount = 1);
+	void gainToken(const std::string& token, int amount = 1);
 
-	void loseToken(std::string token, int amount = 1);
+	void loseToken(const std::string& token, int amount = 1);
 };
 
 extern Player player;

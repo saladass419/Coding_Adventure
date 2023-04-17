@@ -30,11 +30,11 @@ public:
 	virtual void printList();
 	virtual void useAll();
 
-	int find(Symbol* other);
-	int find(int id);
+	int find(Symbol* other) const;
+	int find(int id) const;
 
-	bool contains(Symbol* other);
-	Symbol* getSymbolIcon(char _icon);
+	bool contains(Symbol* other) const;
+	Symbol* getSymbolIcon(char _icon) const;
 };
 
 extern List symbolTypes;

@@ -17,11 +17,11 @@ protected:
 	int id;
 	Rarity rarity;
 
-	int createId();
+	int createId() const;
 public:
 	Symbol() :icon(' '), baseMoney(0), id(createId()), rarity(Special) {}
-	Symbol(int _id) :icon(' '), baseMoney(0), id(_id), rarity(Special) {}
-	virtual ~Symbol() {}
+	explicit Symbol(int _id) :icon(' '), baseMoney(0), id(_id), rarity(Special) {}
+	virtual ~Symbol() = default;
 
 	virtual Symbol* clone() const { return new Symbol(); }
 	virtual Symbol* copy() const { return new Symbol(this->id); }
@@ -30,11 +30,11 @@ public:
 	virtual std::string getAbility();
 
 	void addToBaseMoney(int _baseMoney) { baseMoney += _baseMoney; }
-	char getIcon() { return icon; }
+	char getIcon() const { return icon; }
 	int getRarity() { return rarity; }
-	int getBaseMoney() { return baseMoney; }
-	long getMoney() { return (baseMoney + bonus) * multiplier; }
-	int getId() { return id; }
+	int getBaseMoney() const { return baseMoney; }
+	long getMoney() const { return (baseMoney + bonus) * multiplier; }
+	int getId() const { return id; }
 
 	void addMultiplier(int amount) { multiplier *= amount; }
 	void addBonus(int amount) { bonus += amount; }

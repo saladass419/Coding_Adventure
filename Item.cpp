@@ -11,5 +11,5 @@ std::string Item_c::getAbility() {
 	return "Gains 3$ every 3 turns";
 }
 std::string Item_d::getAbility() {
-	return "Gains 1$ for every non-emptry slot";
+	return "Gains 1$ for every non-empty slot";
 }

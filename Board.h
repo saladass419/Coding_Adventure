@@ -14,7 +14,7 @@ public:
 			data[i] = new Symbol;
 		}
 	}
-	~Board() {}
+	~Board() = default;
 
 	void add(Symbol* newData) override;
 	void remove(Symbol* oldData) override;
@@ -24,7 +24,6 @@ public:
 	void clearBoard();
 	void fillBoard();
 	bool isNeighbour(int a, int b);
-	int adjacentSymbols(int idx, char icon);
 };
 
 extern Board boardList;

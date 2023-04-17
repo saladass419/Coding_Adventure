@@ -5,7 +5,7 @@
 void List::add(Symbol* newData) {
 	if (newData == nullptr) return;
 	
-	Symbol** temp = new Symbol * [count + 1];
+	auto** temp = new Symbol * [count + 1];
 	for (int i = 0; i < count; i++) {
 		temp[i] = data[i];
 	}
@@ -22,7 +22,7 @@ void List::add(Symbol* newData) {
 void List::remove(Symbol* oldData) {
 	if (!contains(oldData)) return;
 
-	Symbol** temp = new Symbol * [count - 1];
+	auto** temp = new Symbol * [count - 1];
 	int o = 0;
 	for (int i = 0; i < count; i++) {
 		if(data[i]!=oldData)
@@ -49,28 +49,28 @@ void List::useAll() {
 	}
 }
 
-bool List::contains(Symbol* other) {
+bool List::contains(Symbol* other) const {
 	for (int i = 0; i < count; i++) {
 		if (data[i] == other) return true;
 	}
 	return false;
 }
 
-int List::find(Symbol* other) {
+int List::find(Symbol* other) const {
 	for (int i = 0; i < count; i++) {
 		if (data[i] == other) return i;
 	}
 	return -1;
 }
 
-int List::find(int id) {
+int List::find(int id) const {
 	for (int i = 0; i < count; i++) {
 		if (data[i]->getId() == id) return i;
 	}
 	return -1;
 }
 
-Symbol* List::getSymbolIcon(char _icon) {
+Symbol* List::getSymbolIcon(char _icon) const {
 	for (int i = 0; i < count; i++) {
 		if (data[i]->getIcon() == _icon) return data[i];
 	}

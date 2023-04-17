@@ -23,16 +23,15 @@ private:
 	int spinCounter;
 public:
 	GameManager() : rent(25), rentCounter(10), spinCounter(5) { setSymbolTypes(); setItemTypes(); }
-	~GameManager() {}
+	~GameManager() = default;
 
-	int getSpinCounter() { return spinCounter; }
-	int getRent() { return rent; }
-	int getRentCounter() { return rentCounter; }
+	int getSpinCounter() const { return spinCounter; }
+	int getRentCounter() const { return rentCounter; }
 
 	void gainItemMoney() { player.addToMoney(countItemMoney()); if (countItemMoney() > 0) { std::cout << countItemMoney() << "$ gained this spin from items" << std::endl; } }
 	void gainSymbolMoney() { player.addToMoney(countSymbolMoney()); std::cout << countSymbolMoney() << "$ gained this spin from symbols" << std::endl; }
 
-	void printInfo();
+	void printInfo() const;
 	void setSymbolTypes();
 	void setItemTypes();
 	void generateStartingSymbols();

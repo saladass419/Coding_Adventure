@@ -3,11 +3,11 @@
 #include <iostream>
 #include "memtrace.h"
 
-int Player::getToken(std::string token) {
-	if (token.compare("reroll") == 0) {
+int Player::getToken(const std::string& token) const {
+	if (token == "reroll") {
 		return rerollers;
 	}
-	else if (token.compare("remove") == 0) {
+	else if (token == "remove") {
 		return removers;
 	}
 	else {
@@ -16,12 +16,12 @@ int Player::getToken(std::string token) {
 	}
 }
 
-void Player::gainToken(std::string token, int amount) {
-	if (token.compare("reroll") == 0) {
+void Player::gainToken(const std::string& token, int amount) {
+	if (token == "reroll") {
 		rerollers += amount;
 		std::cout << amount << " reroll tokens gained" << std::endl;
 	}
-	else if (token.compare("remove") == 0) {
+	else if (token == "remove") {
 		removers += amount;
 		std::cout << amount << " remove tokens gained" << std::endl;
 	}
@@ -30,13 +30,13 @@ void Player::gainToken(std::string token, int amount) {
 	}
 }
 
-void Player::loseToken(std::string token, int amount) {
-	if (token.compare("reroll") == 0) {
+void Player::loseToken(const std::string& token, int amount) {
+	if (token == "reroll") {
 		rerollers -= amount;
 		std::cout << amount << " reroll tokens used" << std::endl;
 		Sleep(500);
 	}
-	else if (token.compare("remove") == 0) {
+	else if (token == "remove") {
 		removers -= amount;
 		std::cout << amount << " remove tokens used" << std::endl;
 		Sleep(500);

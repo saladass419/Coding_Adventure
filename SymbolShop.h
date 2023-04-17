@@ -14,11 +14,11 @@ public:
 			data[i] = new Symbol;
 		}
 	}
-	~SymbolShop() {}
+	~SymbolShop() = default;
 
 	void add(Symbol* newData) override;
 	void remove(Symbol* oldData) override;
-	virtual void printList() override;
+	void printList() override;
 
 	void clearShop();
 	virtual void fillShop();

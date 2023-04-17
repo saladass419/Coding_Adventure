@@ -1,7 +1,7 @@
 #include "Symbol.h"
 #include "memtrace.h"
 
-int Symbol::createId() {
+int Symbol::createId() const {
 	if (icon == ' ') return -1;
 	static int temp = 0;
 	return temp++;

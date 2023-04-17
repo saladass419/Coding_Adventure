@@ -19,7 +19,7 @@ int main() {
 	GameManager manager;
 	manager.generateStartingSymbols();
 
-	bool rentPayedSuccessfully = true;
+	bool rentPayedSuccessfully;
 	for(int chances = 0; chances < 1; chances++){
 		do {
 			manager.checkForRemove();
@@ -54,7 +54,7 @@ int main() {
 		std::cout << "Congratulations! You finished the game!\nIf you want to continue in endless mode, type 'yes'" << std::endl;
 		std::string input;
 		std::cin >> input;
-		if (input.compare("yes") || input.compare("Yes")) { chances = 0; }
+		if (input == "yes" || input == "Yes") { chances = 0; }
 		else { chances = 1; }
 	}
 	return 0;
@@ -165,7 +165,7 @@ void GameManager::symbolShopping() {
 				return;
 			}
 			else {
-				std::cout << "You don't have enoguh reroll tokens!" << std::endl;
+				std::cout << "You don't have enough reroll tokens!" << std::endl;
 			}
 		}
 		if (input - '0' < 0 || input - '0' > symbolShopList.count) {
@@ -208,7 +208,7 @@ void GameManager::itemShopping() {
 }
 
 void GameManager::growRent() {
-	rent += (25) * pow(3, 10 - rentCounter);
+	rent += 25 * (int)pow(3, 10 - rentCounter);
 	rentCounter--;
 }
 
@@ -252,6 +252,6 @@ void GameManager::checkForRemove() {
 	}
 }
 
-void GameManager::printInfo() {
+void GameManager::printInfo() const {
 	std::cout << "Money in vault: " << player.getMoney() << "$ | Rent due in " << spinCounter << " spins ( " << rent << "$ ) | Remover tokens : " << player.getToken("remove") << std::endl << std::endl;
 }
