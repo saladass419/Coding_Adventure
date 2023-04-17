@@ -17,11 +17,11 @@ public:
 			data[i] = _data[i]->copy();
 		}
 	}
-	~List() { 
+	~List() {
 		for (int i = 0; i < count; i++) {
 			delete data[i];
 		}
-		delete[]data; 
+		delete[]data;
 	}
 
 	virtual void add(Symbol* newData);
@@ -34,7 +34,7 @@ public:
 	int find(int id);
 
 	bool contains(Symbol* other);
-	Symbol* getSymbolbyIcon(char _icon);
+	Symbol* getSymbolIcon(char _icon);
 };
 
 extern List symbolTypes;

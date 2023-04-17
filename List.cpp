@@ -70,7 +70,7 @@ int List::find(int id) {
 	return -1;
 }
 
-Symbol* List::getSymbolbyIcon(char _icon) {
+Symbol* List::getSymbolIcon(char _icon) {
 	for (int i = 0; i < count; i++) {
 		if (data[i]->getIcon() == _icon) return data[i];
 	}

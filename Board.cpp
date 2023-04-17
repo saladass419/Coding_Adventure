@@ -48,7 +48,7 @@ void Board::fillBoard() {
 	for (int i = 0; i < tempSymbols.count; i++) {
 		add(tempSymbols.data[i]->copy());
 	}
-	Symbol* temp = new Symbol;
+	auto* temp = new Symbol;
 	for (int i = tempSymbols.count; i < count; i++) {
 		add(temp->clone());
 	}

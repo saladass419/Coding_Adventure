@@ -72,11 +72,11 @@ void GameManager::setItemTypes() {
 }
 
 void GameManager::generateStartingSymbols() {
-	symbolsList.add(symbolTypes.getSymbolbyIcon('a')->clone());
-	symbolsList.add(symbolTypes.getSymbolbyIcon('b')->clone());
-	symbolsList.add(symbolTypes.getSymbolbyIcon('c')->clone());
-	symbolsList.add(symbolTypes.getSymbolbyIcon('d')->clone());
-	symbolsList.add(symbolTypes.getSymbolbyIcon('e')->clone());
+	symbolsList.add(symbolTypes.getSymbolIcon('a')->clone());
+	symbolsList.add(symbolTypes.getSymbolIcon('b')->clone());
+	symbolsList.add(symbolTypes.getSymbolIcon('c')->clone());
+	symbolsList.add(symbolTypes.getSymbolIcon('d')->clone());
+	symbolsList.add(symbolTypes.getSymbolIcon('e')->clone());
 }
 
 void clearScreen(char fill = ' ') {

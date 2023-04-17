@@ -51,7 +51,7 @@ void SymbolShop::fillShop() {
 	shuffle(temp.data, temp.count);
 	int added = 0;
 	for (int i = 0; i < temp.count; i++) {
-		if (getSymbolbyIcon(temp.data[i]->getIcon()) == nullptr) {
+		if (getSymbolIcon(temp.data[i]->getIcon()) == nullptr) {
 			add(temp.data[i]->copy());
 			added++;
 		}
