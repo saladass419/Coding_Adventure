@@ -15,6 +15,7 @@ ItemShop itemShopList;
 Board boardList;
 
 int main() {
+    std::cout<<"Hey"<<std::endl;
 	GameManager manager;
 	manager.generateStartingSymbols();
 
