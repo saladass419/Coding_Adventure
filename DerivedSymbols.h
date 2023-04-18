@@ -136,9 +136,10 @@ public:
     std::string getAbility() override;
 };
 class Symbol_l : public Symbol {
+    int lifeSpan = 3;
 public:
-    Symbol_l() { icon = 'l'; baseMoney = 2; id = createId(); rarity = Common; }
-    explicit Symbol_l(int _id) { icon = 'l', baseMoney = 2; id = _id; rarity = Common; }
+    Symbol_l() { icon = 'l'; baseMoney = 10; id = createId(); rarity = Rare; }
+    explicit Symbol_l(int _id) { icon = 'l', baseMoney = 10; id = _id; rarity = Rare; }
     ~Symbol_l() override = default;
 
     Symbol_l* clone() const override { return new Symbol_l(); }

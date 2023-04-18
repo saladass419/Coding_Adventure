@@ -20,7 +20,7 @@ public:
 	void printList() override;
 
 	void clearShop();
-	virtual void fillShop();
+	virtual void fillShop(int turn);
 	virtual void purchase(int idx);
 };
 

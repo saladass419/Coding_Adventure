@@ -7,15 +7,16 @@ void ItemShop::printList() {
 	}
 	std::cout << std::endl;
 }
-void ItemShop::fillShop() {
+void ItemShop::fillShop(int turn) {
 	clearShop();
 	List temp;
 	for (int i = 0; i < itemTypes.count; i++) {
-		for (int j = 0; j < itemTypes.data[i]->getRarity() + 1; j++) {
+        int amount = itemTypes.data[i]->getRarity() + 1;
+		for (int j = 0; j < amount; j++) {
 			temp.add(itemTypes.data[i]->copy());
 		}
 	}
-	shuffle(temp.data, temp.count);
+    Neutral::shuffle(temp.data, temp.count);
 	int added = 0;
 	for (int i = 0; i < temp.count; i++) {
 		if (getSymbolIcon(temp.data[i]->getIcon()) == nullptr) {

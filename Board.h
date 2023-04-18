@@ -22,7 +22,6 @@ public:
 
 	void clearBoard();
 	void fillBoard();
-	bool isNeighbour(int a, int b);
 };
 
 extern Board boardList;

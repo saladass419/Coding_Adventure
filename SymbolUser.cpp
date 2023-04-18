@@ -1,4 +1,5 @@
 #include "Board.h"
+#include <iostream>
 
 void Symbol::useSymbol() {
 	int idx = boardList.find(this);
@@ -10,7 +11,7 @@ void Symbol_a::useSymbol() {
 void Symbol_b::useSymbol() {
 	int idx = boardList.find(this);
 	for (int i = 0; i < 25; i++) {
-		if (boardList.isNeighbour(i, idx) && boardList.data[i]->getIcon() == 'a') {
+		if (Neutral::isNeighbour(i, idx) && boardList.data[i]->getIcon() == 'a') {
 			boardList.data[i]->addMultiplier(2);
 			addBonus(2);
 		}
@@ -30,7 +31,7 @@ void Symbol_e::useSymbol() {
 void Symbol_f::useSymbol() {
 	int idx = boardList.find(this);
 	for (int i = 0; i < 25; i++) {
-		if (boardList.isNeighbour(i, idx) && boardList.data[i]->getIcon() == ' ') {
+		if (Neutral::isNeighbour(i, idx) && boardList.data[i]->getIcon() == ' ') {
 			addBonus(1);
 		}
 	}
@@ -51,7 +52,7 @@ void Symbol_i::useSymbol() {
 void Symbol_j::useSymbol() {
 	int idx = boardList.find(this);
 	for (int i = 0; i < 25; i++) {
-		if (boardList.isNeighbour(i, idx) && boardList.data[i]->getIcon() == 'i') {
+		if (Neutral::isNeighbour(i, idx) && boardList.data[i]->getIcon() == 'i') {
 			int foundidx = symbolsList.find(boardList.data[i]->getId());
 			if (foundidx == -1) return;
 			boardList.data[i]->useSymbolWhenRemove(); // will need to fix this, so that it is called automatically
@@ -63,14 +64,22 @@ void Symbol_j::useSymbol() {
 void Symbol_k::useSymbol() {
     int idx = boardList.find(this);
     for (int i = 0; i < 25; i++) {
-        if (boardList.isNeighbour(i, idx) && boardList.data[i]->getIcon() == 'a') {
+        if (Neutral::isNeighbour(i, idx) && boardList.data[i]->getIcon() == 'a') {
             boardList.data[i]->addMultiplier(5);
         }
     }
 }
 void Symbol_l::useSymbol() {
     int idx = boardList.find(this);
-
+    for (int i = 0; i < 25; i++) {
+        if (Neutral::isNeighbour(i, idx) && boardList.data[i]->getIcon() == 'h') {
+            if(dynamic_cast<Symbol_l*>(symbolsList.data[symbolsList.find(id)])->lifeSpan < 4){
+                dynamic_cast<Symbol_l*>(symbolsList.data[symbolsList.find(id)])->lifeSpan++;
+            }
+        }
+    }
+    dynamic_cast<Symbol_l*>(symbolsList.data[symbolsList.find(id)])->lifeSpan--;
+    if(dynamic_cast<Symbol_l*>(symbolsList.data[symbolsList.find(id)])->lifeSpan <= 0) symbolsList.remove(symbolsList.data[symbolsList.find(id)]);
 }
 void Symbol_m::useSymbol() {
     int idx = boardList.find(this);

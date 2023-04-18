@@ -28,6 +28,7 @@ public:
 };
 
 class Item_c : public Symbol {
+    int spins = 3;
 public:
 	Item_c() { icon = 'c'; baseMoney = 0; id = createId(); rarity = Common; }
 	explicit Item_c(int _id) { icon = 'c', baseMoney = 0; id = _id; rarity = Common; }
@@ -49,6 +50,16 @@ public:
 	void useSymbol() override;
 	std::string getAbility() override;
 };
+class Item_e : public Symbol {
+public:
+    Item_e() { icon = 'e'; baseMoney = 0; id = createId(); rarity = Special; }
+    explicit Item_e(int _id) { icon = 'e', baseMoney = 0; id = _id; rarity = Special; }
+    ~Item_e() override = default;
 
+    Item_e* clone() const override { return new Item_e(); }
+    Item_e* copy() const override { return new Item_e(this->id); }
+    void useSymbol() override;
+    std::string getAbility() override;
+};
 
 #endif // !ITEM_H

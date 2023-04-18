@@ -11,7 +11,7 @@ public:
 	~ItemShop() = default;
 
 	void printList() override;
-	void fillShop() override;
+	void fillShop(int turn) override;
 	void purchase(int idx) override;
 };
 

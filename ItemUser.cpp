@@ -15,9 +15,15 @@ void Item_b::useSymbol() {
 	}
 }
 void Item_c::useSymbol() {
-	static int turn = 3;
-	if (turn == 0) { addBonus(3); turn = 3; }
-	else { turn--; }
+    if(dynamic_cast<Item_c*>(itemsList.data[itemsList.find(id)])->spins == 3) {
+        addBonus(3);
+    }
+    if(dynamic_cast<Item_c*>(itemsList.data[itemsList.find(id)])->spins > 0)
+        dynamic_cast<Item_c*>(itemsList.data[itemsList.find(id)])->spins--;
+    else{
+        dynamic_cast<Item_c*>(itemsList.data[itemsList.find(id)])->spins = 3;
+        addBonus(3);
+    }
 }
 void Item_d::useSymbol() {
 	for (int i = 0; i < boardList.count; i++) {
@@ -25,4 +31,7 @@ void Item_d::useSymbol() {
 			addBonus(1);
 		}
 	}
+}
+void Item_e::useSymbol() {
+    //isAlwaysAdjacent = true; //will need to figure out late, why does this happen
 }

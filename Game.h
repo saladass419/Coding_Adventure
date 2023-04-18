@@ -3,13 +3,13 @@
 
 #include "Neutral.h"
 #include "Player.h"
+#include "Item.h"
 #include "Symbol.h"
 #include "DerivedSymbols.h"
-#include "Item.h"
 #include "List.h"
 #include "Board.h"
-#include "SymbolShop.h"
 #include "ItemShop.h"
+#include "SymbolShop.h"
 #include "ReadFile.h"
 #include <iostream>
 #include <limits>
@@ -70,6 +70,7 @@ void GameManager::setItemTypes() {
 	itemTypes.add(new Item_b);
 	itemTypes.add(new Item_c);
 	itemTypes.add(new Item_d);
+    itemTypes.add(new Item_e);
 }
 
 void GameManager::generateStartingSymbols() {
@@ -78,6 +79,8 @@ void GameManager::generateStartingSymbols() {
 	symbolsList.add(symbolTypes.getSymbolIcon('c')->clone());
 	symbolsList.add(symbolTypes.getSymbolIcon('d')->clone());
 	symbolsList.add(symbolTypes.getSymbolIcon('e')->clone());
+
+    itemsList.add(itemTypes.getSymbolIcon('e')->clone());
 }
 
 #endif // !GAME_H

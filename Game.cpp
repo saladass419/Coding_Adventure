@@ -12,6 +12,7 @@ SymbolShop symbolShopList;
 ItemShop itemShopList;
 
 Board boardList;
+bool Neutral::isAlwaysAdjacent = false; //fix this pls
 
 int main() {
 	GameManager manager;
@@ -27,7 +28,7 @@ int main() {
 			manager.spinAnimation();
 			manager.printInfo();
 			manager.spin();
-			sleepfor(500);
+			Neutral::sleepfor(500);
 
 			manager.gainItemMoney();
 			manager.displayItemMoneyDistribution();
@@ -44,7 +45,7 @@ int main() {
 					manager.itemShopping();
 				}
 				manager.symbolShopping();
-				sleepfor(750);
+                Neutral::sleepfor(750);
 			}
 			system("clear");
 		} while (rentPayedSuccessfully&&manager.getRentCounter()!=0);
@@ -135,7 +136,7 @@ void GameManager::spinAnimation() const {
 		printInfo();
 		boardList.fillBoard();
 		boardList.printList();
-		sleepfor(300);
+        Neutral::sleepfor(300);
 		system("clear");
 	}
 }
@@ -152,7 +153,7 @@ void GameManager::symbolShopping() {
 	printInfo();
 	std::cout << "|SYMBOL SHOPPING|" << std::endl;
 	displayCurrentSymbols();
-	symbolShopList.fillShop();
+	symbolShopList.fillShop(rentCounter);
 	symbolShopList.printList();
 	std::cout << "Select a symbol to add (0: none, r: reroll) | Reroll tokens: "<<player.getToken("reroll") << std::endl;
 	char input;
@@ -182,7 +183,7 @@ void GameManager::itemShopping() {
 	printInfo();
 	std::cout << "|ITEM SHOPPING|" << std::endl;
 	displayCurrentItems();
-	itemShopList.fillShop();
+	itemShopList.fillShop(rentCounter);
 	itemShopList.printList();
 	std::cout << "Select an item to add (r: reroll) | Reroll tokens: " << player.getToken("reroll") << std::endl;
 	char input;
@@ -245,7 +246,7 @@ void GameManager::checkForRemove() {
                     player.loseToken("remove");
                     symbolsList.remove(symbolsList.data[i]);
                     std::cout << std::endl << "'" << input << "' has been removed" << std::endl;
-                    sleepfor(750);
+                    Neutral::sleepfor(750);
                     break;
                 }
             }

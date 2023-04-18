@@ -39,15 +39,16 @@ void SymbolShop::printList() {
 	std::cout << std::endl;
 }
 
-void SymbolShop::fillShop() {
+void SymbolShop::fillShop(int turn) {
 	clearShop();
 	List temp;
 	for (int i = 0; i < symbolTypes.count; i++) {
-		for (int j = 0; j < symbolTypes.data[i]->getRarity()+1; j++) {
+        int amount = symbolTypes.data[i]->getRarity()+1;
+		for (int j = 0; j < amount; j++) {
 			temp.add(symbolTypes.data[i]->copy());
 		}
 	}
-	shuffle(temp.data, temp.count);
+    Neutral::shuffle(temp.data, temp.count);
 	int added = 0;
 	for (int i = 0; i < temp.count; i++) {
 		if (getSymbolIcon(temp.data[i]->getIcon()) == nullptr) {

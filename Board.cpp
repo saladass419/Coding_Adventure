@@ -42,7 +42,7 @@ void Board::useAll() {
 void Board::fillBoard() {
 	clearBoard();
 	List tempSymbols(symbolsList.data, symbolsList.count);
-	shuffle(tempSymbols.data, tempSymbols.count);
+    Neutral::shuffle(tempSymbols.data, tempSymbols.count);
 	for (int i = 0; i < (tempSymbols.count>count?count:tempSymbols.count); i++) {
 		add(tempSymbols.data[i]->copy()); //fill with symbols from the list
 	}
@@ -51,30 +51,11 @@ void Board::fillBoard() {
 		add(temp->clone());
 	}
 	delete temp;
-	shuffle(data, count);
+    Neutral::shuffle(data, count);
 }
 
 void Board::clearBoard() {
 	for (int i = 0; i < count; i++) {
 		if (data[i]->getIcon() != ' ') remove(data[i]);
 	}
-}
-
-bool Board::isNeighbour(int a, int b) {
-	if (a == b) return false;
-	int xa = a / 5;
-	int ya = a % 5;
-	int xb = b / 5;
-	int yb = b % 5;
-	if (xa < 0 || xa>4 || ya < 0 || ya>4 || xb < 0 || xb>4 || yb < 0 || yb>4) return false;
-	if (ya == yb) {
-		if (xa - 1 == xb || xa == xb || xa + 1 == xb)return true;
-	}
-	if (ya == yb+1) {
-		if (xa - 1 == xb || xa == xb || xa + 1 == xb)return true;
-	}
-	if (ya == yb-1) {
-		if (xa - 1 == xb || xa == xb || xa + 1 == xb)return true;
-	}
-	return false;
 }
