@@ -59,6 +59,10 @@ void GameManager::setSymbolTypes() {
 	symbolTypes.add(new Symbol_h);
 	symbolTypes.add(new Symbol_i);
 	symbolTypes.add(new Symbol_j);
+    symbolTypes.add(new Symbol_k);
+    symbolTypes.add(new Symbol_l);
+    symbolTypes.add(new Symbol_m);
+    symbolTypes.add(new Symbol_n);
 }
 
 void GameManager::setItemTypes() {

@@ -28,5 +28,17 @@ std::string Symbol_i::getAbility() {
 	return "Adds 'a' when destroyed";
 }
 std::string Symbol_j::getAbility() {
-	return "Destroys every adjacent 'i', gains 2x money for each";
+	return "Destroys adjacent 'i', gains 2x money for each";
+}
+std::string Symbol_k::getAbility() {
+    return "Adjacent 'a' gain 5x money";
+}
+std::string Symbol_l::getAbility() {
+    return "";
+}
+std::string Symbol_m::getAbility() {
+    return "";
+}
+std::string Symbol_n::getAbility() {
+    return "";
 }

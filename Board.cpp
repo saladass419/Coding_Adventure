@@ -43,11 +43,11 @@ void Board::fillBoard() {
 	clearBoard();
 	List tempSymbols(symbolsList.data, symbolsList.count);
 	shuffle(tempSymbols.data, tempSymbols.count);
-	for (int i = 0; i < tempSymbols.count; i++) {
-		add(tempSymbols.data[i]->copy());
+	for (int i = 0; i < (tempSymbols.count>count?count:tempSymbols.count); i++) {
+		add(tempSymbols.data[i]->copy()); //fill with symbols from the list
 	}
 	auto* temp = new Symbol;
-	for (int i = tempSymbols.count; i < count; i++) {
+	for (int i = tempSymbols.count; i < count; i++) { //fill with empty symbols
 		add(temp->clone());
 	}
 	delete temp;

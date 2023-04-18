@@ -123,5 +123,53 @@ public:
 	void useSymbolWhenRemove() override;
 	std::string getAbility() override;
 };
+class Symbol_k : public Symbol {
+public:
+    Symbol_k() { icon = 'k'; baseMoney = 3; id = createId(); rarity = VeryRare; }
+    explicit Symbol_k(int _id) { icon = 'k', baseMoney = 3; id = _id; rarity = VeryRare; }
+    ~Symbol_k() override = default;
+
+    Symbol_k* clone() const override { return new Symbol_k(); }
+    Symbol_k* copy() const override { return new Symbol_k(this->id); }
+    void useSymbol() override;
+    void useSymbolWhenRemove() override;
+    std::string getAbility() override;
+};
+class Symbol_l : public Symbol {
+public:
+    Symbol_l() { icon = 'l'; baseMoney = 2; id = createId(); rarity = Common; }
+    explicit Symbol_l(int _id) { icon = 'l', baseMoney = 2; id = _id; rarity = Common; }
+    ~Symbol_l() override = default;
+
+    Symbol_l* clone() const override { return new Symbol_l(); }
+    Symbol_l* copy() const override { return new Symbol_l(this->id); }
+    void useSymbol() override;
+    void useSymbolWhenRemove() override;
+    std::string getAbility() override;
+};
+class Symbol_m : public Symbol {
+public:
+    Symbol_m() { icon = 'm'; baseMoney = 2; id = createId(); rarity = Common; }
+    explicit Symbol_m(int _id) { icon = 'm', baseMoney = 2; id = _id; rarity = Common; }
+    ~Symbol_m() override = default;
+
+    Symbol_m* clone() const override { return new Symbol_m(); }
+    Symbol_m* copy() const override { return new Symbol_m(this->id); }
+    void useSymbol() override;
+    void useSymbolWhenRemove() override;
+    std::string getAbility() override;
+};
+class Symbol_n : public Symbol {
+public:
+    Symbol_n() { icon = 'n'; baseMoney = 6; id = createId(); rarity = VeryRare; }
+    explicit Symbol_n(int _id) { icon = 'n', baseMoney = 6; id = _id; rarity = VeryRare; }
+    ~Symbol_n() override = default;
+
+    Symbol_n* clone() const override { return new Symbol_n(); }
+    Symbol_n* copy() const override { return new Symbol_n(this->id); }
+    void useSymbol() override;
+    void useSymbolWhenRemove() override;
+    std::string getAbility() override;
+};
 
 #endif // !DERIVEDSYMBOLS_H

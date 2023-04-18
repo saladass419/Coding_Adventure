@@ -60,3 +60,23 @@ void Symbol_j::useSymbol() {
 		}
 	}
 }
+void Symbol_k::useSymbol() {
+    int idx = boardList.find(this);
+    for (int i = 0; i < 25; i++) {
+        if (boardList.isNeighbour(i, idx) && boardList.data[i]->getIcon() == 'a') {
+            boardList.data[i]->addMultiplier(5);
+        }
+    }
+}
+void Symbol_l::useSymbol() {
+    int idx = boardList.find(this);
+
+}
+void Symbol_m::useSymbol() {
+    int idx = boardList.find(this);
+
+}
+void Symbol_n::useSymbol() {
+    int idx = boardList.find(this);
+
+}

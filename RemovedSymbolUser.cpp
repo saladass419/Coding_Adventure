@@ -48,3 +48,19 @@ void Symbol_j::useSymbolWhenRemove() {
 	int idx = boardList.find(this);
 
 }
+void Symbol_k::useSymbolWhenRemove() {
+    int idx = boardList.find(this);
+
+}
+void Symbol_l::useSymbolWhenRemove() {
+    int idx = boardList.find(this);
+
+}
+void Symbol_m::useSymbolWhenRemove() {
+    int idx = boardList.find(this);
+
+}
+void Symbol_n::useSymbolWhenRemove() {
+    int idx = boardList.find(this);
+
+}
