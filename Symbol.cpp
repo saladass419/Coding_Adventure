@@ -1,5 +1,4 @@
 #include "Symbol.h"
-#include "memtrace.h"
 
 int Symbol::createId() const {
 	if (icon == ' ') return -1;

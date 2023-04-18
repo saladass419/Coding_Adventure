@@ -3,7 +3,6 @@
 
 #include "Neutral.h"
 #include "List.h"
-#include "memtrace.h"
 
 class Board : public List {
 public:

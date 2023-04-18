@@ -11,10 +11,8 @@
 #include "SymbolShop.h"
 #include "ItemShop.h"
 #include "ReadFile.h"
-#include <windows.h>
-#include <conio.h>
 #include <iostream>
-#include "memtrace.h"
+#include <limits>
 
 class GameManager {
 private:
@@ -22,7 +20,7 @@ private:
 	int rentCounter;
 	int spinCounter;
 public:
-	GameManager() : rent(25), rentCounter(10), spinCounter(5) { setSymbolTypes(); setItemTypes(); }
+	GameManager() : rent(50), rentCounter(10), spinCounter(5) { setSymbolTypes(); setItemTypes(); }
 	~GameManager() = default;
 
 	int getSpinCounter() const { return spinCounter; }
@@ -32,9 +30,9 @@ public:
 	void gainSymbolMoney() { player.addToMoney(countSymbolMoney()); std::cout << countSymbolMoney() << "$ gained this spin from symbols" << std::endl; }
 
 	void printInfo() const;
-	void setSymbolTypes();
-	void setItemTypes();
-	void generateStartingSymbols();
+	static void setSymbolTypes();
+	static void setItemTypes();
+	static void generateStartingSymbols();
 	void displayCurrentSymbols();
 	void displayCurrentItems();
 	void displaySymbolMoneyDistribution();
@@ -43,7 +41,7 @@ public:
 	long countItemMoney();
 	void symbolShopping();
 	void itemShopping();
-	void spinAnimation();
+	void spinAnimation() const;
 	void spin();
 	void growRent();
 	bool payRent();
@@ -76,17 +74,6 @@ void GameManager::generateStartingSymbols() {
 	symbolsList.add(symbolTypes.getSymbolIcon('c')->clone());
 	symbolsList.add(symbolTypes.getSymbolIcon('d')->clone());
 	symbolsList.add(symbolTypes.getSymbolIcon('e')->clone());
-}
-
-void clearScreen(char fill = ' ') {
-	COORD tl = { 0,0 };
-	CONSOLE_SCREEN_BUFFER_INFO s;
-	HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
-	GetConsoleScreenBufferInfo(console, &s);
-	DWORD written, cells = s.dwSize.X * s.dwSize.Y;
-	FillConsoleOutputCharacter(console, fill, cells, tl, &written);
-	FillConsoleOutputAttribute(console, s.wAttributes, cells, tl, &written);
-	SetConsoleCursorPosition(console, tl);
 }
 
 #endif // !GAME_H

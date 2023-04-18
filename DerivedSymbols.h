@@ -2,7 +2,6 @@
 #define DERIVEDSYMBOLS_H
 
 #include "Symbol.h"
-#include "memtrace.h"
 
 class Symbol_a : public Symbol {
 public:

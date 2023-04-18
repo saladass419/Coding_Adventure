@@ -2,7 +2,6 @@
 #define SYMBOL_H
 
 #include <string>
-#include "memtrace.h"
 
 enum Rarity {
 	Special, VeryRare, Rare, Uncommon, Common
@@ -38,6 +37,7 @@ public:
 
 	void addMultiplier(int amount) { multiplier *= amount; }
 	void addBonus(int amount) { bonus += amount; }
+	void resetSymbol() { bonus = 0; multiplier = 1; }
 };
 
 #endif // !SYMBOL_H

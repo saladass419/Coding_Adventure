@@ -1,5 +1,4 @@
 #include "Board.h"
-#include "memtrace.h"
 
 void Symbol::useSymbol() {
 	int idx = boardList.find(this);

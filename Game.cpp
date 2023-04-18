@@ -1,5 +1,4 @@
 #include "Game.h"
-#include "memtrace.h"
 
 Player player;
 
@@ -15,19 +14,20 @@ ItemShop itemShopList;
 Board boardList;
 
 int main() {
-
 	GameManager manager;
 	manager.generateStartingSymbols();
-
 	bool rentPayedSuccessfully;
+
+	std::cout<<"Press any key to start"<<std::endl;
 	for(int chances = 0; chances < 1; chances++){
 		do {
+			while ((getchar()) != '\n' && getchar() != EOF) {}
 			manager.checkForRemove();
 
 			manager.spinAnimation();
 			manager.printInfo();
 			manager.spin();
-			Sleep(500);
+			sleepfor(500);
 
 			manager.gainItemMoney();
 			manager.displayItemMoneyDistribution();
@@ -37,17 +37,16 @@ int main() {
 
 			rentPayedSuccessfully = manager.payRent();
 
-			system("pause");
+            std::getchar();
 
-			if (rentPayedSuccessfully) {
+            if (rentPayedSuccessfully) {
 				if (manager.getSpinCounter() == 5) {
 					manager.itemShopping();
 				}
 				manager.symbolShopping();
-				Sleep(750);
+				sleepfor(750);
 			}
-
-			clearScreen();
+			system("clear");
 		} while (rentPayedSuccessfully&&manager.getRentCounter()!=0);
 		if (!rentPayedSuccessfully) break;
 
@@ -106,6 +105,7 @@ void GameManager::displayItemMoneyDistribution() {
 		std::cout << std::endl;
 		for (int i = 0; i < itemsList.count; i++) {
 			std::cout << itemsList.data[i]->getIcon() << ": " << itemsList.data[i]->getMoney() << "$ | ";
+			itemsList.data[i]->resetSymbol();
 		}
 		std::cout << std::endl<<std::endl;
 	}
@@ -129,14 +129,14 @@ long GameManager::countItemMoney() {
 	return result;
 }
 
-void GameManager::spinAnimation() {
-	clearScreen();
+void GameManager::spinAnimation() const {
+	system("clear");
 	for (int i = 0; i < 5; i++) {
 		printInfo();
 		boardList.fillBoard();
 		boardList.printList();
-		Sleep(300);
-		clearScreen();
+		sleepfor(300);
+		system("clear");
 	}
 }
 
@@ -148,7 +148,7 @@ void GameManager::spin() {
 }
 
 void GameManager::symbolShopping() {
-	clearScreen();
+	system("clear");
 	printInfo();
 	std::cout << "|SYMBOL SHOPPING|" << std::endl;
 	displayCurrentSymbols();
@@ -178,13 +178,13 @@ void GameManager::symbolShopping() {
 }
 
 void GameManager::itemShopping() {
-	clearScreen();
+	system("clear");
 	printInfo();
 	std::cout << "|ITEM SHOPPING|" << std::endl;
 	displayCurrentItems();
 	itemShopList.fillShop();
 	itemShopList.printList();
-	std::cout << "Select an item to add (0: none, r: reroll) | Reroll tokens: " << player.getToken("reroll") << std::endl;
+	std::cout << "Select an item to add (r: reroll) | Reroll tokens: " << player.getToken("reroll") << std::endl;
 	char input;
 	do {
 		std::cin >> input;
@@ -198,11 +198,10 @@ void GameManager::itemShopping() {
 				std::cout << "You don't have enoguh reroll tokens!" << std::endl;
 			}
 		}
-		if (input - '0' < 0 || input - '0' > itemShopList.count) {
+		if (input - '0' < 1 || input - '0' > itemShopList.count) {
 			std::cout << "Invalid number" << std::endl;
 		}
-	} while ((input - '0' < 0 || input - '0' > itemShopList.count) || input == 'r');
-	if (input - '0' == 0) return;
+	} while ((input - '0' < 1 || input - '0' > itemShopList.count) || input == 'r');
 	itemShopList.purchase(input - '0' - 1);
 	std::cout << std::endl << "'" << itemShopList.data[input - '0' - 1]->getIcon() << "' added to your symbols" << std::endl;
 }
@@ -230,26 +229,30 @@ bool GameManager::payRent() {
 }
 
 void GameManager::checkForRemove() {
-	clearScreen();
+	system("clear");
 	printInfo();
-	std::cout << "Press any key to continue..." << std::endl << std::endl;
+	std::cout << "Press 'enter' to continue..." << std::endl << std::endl;
 	if (player.getToken("remove") > 0) std::cout << "Press 'r' to remove a symbol" << std::endl << std::endl;
-	if (_getch() == 'r'&&player.getToken("remove")>0) {
-		displayCurrentSymbols();
-		std::cout << "Input the symbol you wish to remove: ";
-		char input;
-		std::cin >> input;
-		for (int i = 0; i < symbolsList.count; i++) {
-			if (symbolsList.data[i]->getIcon() == input) {
-				player.loseToken("remove");
-				symbolsList.remove(symbolsList.data[i]);
-				std::cout << std::endl << "'" << input << "' has been removed" << std::endl;
-				Sleep(750);
-				break;
-			}
-		}
-		checkForRemove();
-	}
+
+    if(getchar()=='r') {
+        if (player.getToken("remove") > 0) {
+            displayCurrentSymbols();
+            std::cout << "Input the symbol you wish to remove: ";
+            char input;
+            std::cin >> input;
+            for (int i = 0; i < symbolsList.count; i++) {
+                if (symbolsList.data[i]->getIcon() == input) {
+                    player.loseToken("remove");
+                    symbolsList.remove(symbolsList.data[i]);
+                    std::cout << std::endl << "'" << input << "' has been removed" << std::endl;
+                    sleepfor(750);
+                    break;
+                }
+            }
+            while ((getchar()) != '\n' && getchar() != EOF) {}
+            checkForRemove();
+        }
+    }
 }
 
 void GameManager::printInfo() const {

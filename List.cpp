@@ -1,6 +1,5 @@
 #include "List.h"
 #include <iostream>
-#include "memtrace.h" 
 
 void List::add(Symbol* newData) {
 	if (newData == nullptr) return;

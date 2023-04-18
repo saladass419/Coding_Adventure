@@ -4,17 +4,10 @@
 #include "Neutral.h"
 #include "List.h"
 #include "SymbolShop.h"
-#include "memtrace.h"
 
 class ItemShop : public SymbolShop {
 public:
-	ItemShop() {
-		count = 3;
-		data = new Symbol * [count];
-		for (int i = 0; i < count; i++) {
-			data[i] = new Symbol;
-		}
-	}
+	ItemShop() :SymbolShop() { }
 	~ItemShop() = default;
 
 	void printList() override;

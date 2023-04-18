@@ -4,7 +4,6 @@
 #include "Symbol.h"
 #include "Item.h"
 #include "DerivedSymbols.h"
-#include "memtrace.h"
 
 class List {
 public:

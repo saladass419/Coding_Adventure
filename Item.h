@@ -3,7 +3,6 @@
 
 #include "Symbol.h"
 #include <string>
-#include "memtrace.h"
 
 class Item_a : public Symbol {
 public:

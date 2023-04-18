@@ -3,7 +3,6 @@
 
 #include "Neutral.h"
 #include "List.h"
-#include "memtrace.h"
 
 class SymbolShop : public List {
 public:

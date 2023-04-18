@@ -2,7 +2,6 @@
 #define PLAYER_H
 
 #include <string>
-#include "memtrace.h"
 
 class Player {
 private:

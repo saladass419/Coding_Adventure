@@ -1,5 +1,4 @@
 #include "DerivedSymbols.h"
-#include "memtrace.h"
 
 std::string Symbol_a::getAbility() {
 	return "";

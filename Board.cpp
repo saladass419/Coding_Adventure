@@ -1,7 +1,5 @@
 #include "Board.h"
 #include <iostream>
-#include "memtrace.h"
-
 
 void Board::add(Symbol* newData) {
 	for (int i = 0; i < count; i++) {

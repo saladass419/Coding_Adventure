@@ -1,6 +1,5 @@
 #include "Board.h"
 #include "Player.h"
-#include "memtrace.h"
 
 void Symbol::useSymbolWhenRemove() {
 	int idx = boardList.find(this);

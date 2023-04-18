@@ -1,5 +1,4 @@
 #include "ReadFile.h"
-#include "memtrace.h"
 
 std::string Reader::read(char symbol) {
 	std::ifstream file;

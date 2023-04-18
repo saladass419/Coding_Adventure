@@ -1,7 +1,6 @@
 #include "Player.h"
-#include <windows.h>
+//#include <windows.h>
 #include <iostream>
-#include "memtrace.h"
 
 int Player::getToken(const std::string& token) const {
 	if (token == "reroll") {
@@ -34,12 +33,12 @@ void Player::loseToken(const std::string& token, int amount) {
 	if (token == "reroll") {
 		rerollers -= amount;
 		std::cout << amount << " reroll tokens used" << std::endl;
-		Sleep(500);
+		//Sleep(500);
 	}
 	else if (token == "remove") {
 		removers -= amount;
 		std::cout << amount << " remove tokens used" << std::endl;
-		Sleep(500);
+		//Sleep(500);
 	}
 	else {
 		std::cout << "Invalid token type" << std::endl;

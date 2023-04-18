@@ -1,5 +1,4 @@
 #include "Item.h"
-#include "memtrace.h"
 
 std::string Item_a::getAbility() {
 	return "Gains 1$ for each empty slot";

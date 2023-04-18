@@ -4,7 +4,6 @@
 #include <fstream>
 #include <string>
 #include <sstream>
-#include "memtrace.h"
 
 class Reader {
 public:

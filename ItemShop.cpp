@@ -1,6 +1,5 @@
 #include "ItemShop.h"
 #include <iostream>
-#include "memtrace.h"
 
 void ItemShop::printList() {
 	for (int i = 0; i < count; i++) {

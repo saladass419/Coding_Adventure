@@ -1,6 +1,5 @@
 #include "SymbolShop.h"
 #include <iostream>
-#include "memtrace.h"
 
 void SymbolShop::add(Symbol* newData) {
 	for (int i = 0; i < count; i++) {
