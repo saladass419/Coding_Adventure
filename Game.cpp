@@ -12,7 +12,6 @@ SymbolShop symbolShopList;
 ItemShop itemShopList;
 
 Board boardList;
-bool Neutral::isAlwaysAdjacent = false; //fix this pls
 
 int main() {
 	GameManager manager;
@@ -105,7 +104,9 @@ void GameManager::displayItemMoneyDistribution() {
 	if (countItemMoney() > 0) {
 		std::cout << std::endl;
 		for (int i = 0; i < itemsList.count; i++) {
-			std::cout << itemsList.data[i]->getIcon() << ": " << itemsList.data[i]->getMoney() << "$ | ";
+			if(itemsList.data[i]->getMoney()>0) {
+				std::cout << itemsList.data[i]->getIcon() << ": " << itemsList.data[i]->getMoney() << "$ | ";
+			}
 			itemsList.data[i]->resetSymbol();
 		}
 		std::cout << std::endl<<std::endl;

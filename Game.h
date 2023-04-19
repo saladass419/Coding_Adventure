@@ -79,8 +79,6 @@ void GameManager::generateStartingSymbols() {
 	symbolsList.add(symbolTypes.getSymbolIcon('c')->clone());
 	symbolsList.add(symbolTypes.getSymbolIcon('d')->clone());
 	symbolsList.add(symbolTypes.getSymbolIcon('e')->clone());
-
-    itemsList.add(itemTypes.getSymbolIcon('e')->clone());
 }
 
 #endif // !GAME_H
