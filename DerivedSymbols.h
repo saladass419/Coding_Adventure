@@ -17,8 +17,8 @@ public:
 };
 class Symbol_b : public Symbol {
 public:
-	Symbol_b() { icon = 'b'; baseMoney = 1; id = createId(); rarity = Uncommon; }
-	explicit Symbol_b(int _id) { icon = 'b', baseMoney = 1; id = _id; rarity = Uncommon; }
+	Symbol_b() { icon = 'b'; baseMoney = 1; id = createId(); rarity = Common; }
+	explicit Symbol_b(int _id) { icon = 'b', baseMoney = 1; id = _id; rarity = Common; }
 	~Symbol_b() override = default;
 
 	Symbol_b* clone() const override { return new Symbol_b(); }
@@ -29,8 +29,8 @@ public:
 };
 class Symbol_c : public Symbol {
 public:
-	Symbol_c() { icon = 'c'; baseMoney = 2; id = createId(); rarity = Common; }
-	explicit Symbol_c(int _id) { icon = 'c', baseMoney = 2; id = _id; rarity = Common; }
+	Symbol_c() { icon = 'c'; baseMoney = 1; id = createId(); rarity = Common; }
+	explicit Symbol_c(int _id) { icon = 'c', baseMoney = 1; id = _id; rarity = Common; }
 	~Symbol_c() override = default;
 
 	Symbol_c* clone() const override { return new Symbol_c(); }

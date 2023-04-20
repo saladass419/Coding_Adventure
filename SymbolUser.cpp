@@ -1,32 +1,27 @@
 #include "Board.h"
 #include <iostream>
 
-void Symbol::useSymbol() {
-	int idx = boardList.find(this);
-}
 void Symbol_a::useSymbol() {
-	int idx = boardList.find(this);
-	
+	//int idx = boardList.find(this);
 }
 void Symbol_b::useSymbol() {
-	int idx = boardList.find(this);
-	for (int i = 0; i < 25; i++) {
-		if (Neutral::isNeighbour(i, idx) && boardList.data[i]->getIcon() == 'a') {
-			boardList.data[i]->addMultiplier(2);
-			addBonus(2);
-		}
-	}
+	//int idx = boardList.find(this);
 }
 void Symbol_c::useSymbol() {
-	int idx = boardList.find(this);
-	if (idx == 0 || idx == 4 || idx == 20 || idx == 24) addBonus(4);
+	//int idx = boardList.find(this);
 }
 void Symbol_d::useSymbol() {
 	int idx = boardList.find(this);
-
+    for (int i = 0; i < 25; i++) {
+        if (Neutral::isNeighbour(i, idx) && boardList.data[i]->getIcon() == 'a') {
+            boardList.data[i]->addMultiplier(2);
+            addBonus(2);
+        }
+    }
 }
 void Symbol_e::useSymbol() {
 	int idx = boardList.find(this);
+    if (idx == 0 || idx == 4 || idx == 20 || idx == 24) addBonus(4);
 }
 void Symbol_f::useSymbol() {
 	int idx = boardList.find(this);
@@ -43,8 +38,13 @@ void Symbol_g::useSymbol() {
 }
 void Symbol_h::useSymbol() {
 	int idx = boardList.find(this);
-
+    for (int i = 0; i < 25; i++) {
+        if (Neutral::isNeighbour(i, idx) && (boardList.data[i]->getIcon() == 'b')||boardList.data[i]->getIcon() == 'c') {
+            addMultiplier(2);
+        }
+    }
 }
+
 void Symbol_i::useSymbol() {
 	int idx = boardList.find(this);
 

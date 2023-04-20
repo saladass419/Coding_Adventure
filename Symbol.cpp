@@ -9,3 +9,7 @@ int Symbol::createId() const {
 std::string Symbol::getAbility() {
 	return "Absolutely nothing";
 }
+
+void Symbol::useSymbol() {
+    //int idx = boardList.find(this);
+}

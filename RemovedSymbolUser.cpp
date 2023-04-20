@@ -2,32 +2,25 @@
 #include "Player.h"
 
 void Symbol::useSymbolWhenRemove() {
-	int idx = boardList.find(this);
-
+	//int idx = boardList.find(this);
 }
 void Symbol_a::useSymbolWhenRemove() {
-	int idx = boardList.find(this);
-
+	//int idx = boardList.find(this);
 }
 void Symbol_b::useSymbolWhenRemove() {
-	int idx = boardList.find(this);
-
+	//int idx = boardList.find(this);
 }
 void Symbol_c::useSymbolWhenRemove() {
-	int idx = boardList.find(this);
-
+	//int idx = boardList.find(this);
 }
 void Symbol_d::useSymbolWhenRemove() {
-	int idx = boardList.find(this);
-
+	//int idx = boardList.find(this);
 }
 void Symbol_e::useSymbolWhenRemove() {
-	int idx = boardList.find(this);
-
+	//int idx = boardList.find(this);
 }
 void Symbol_f::useSymbolWhenRemove() {
-	int idx = boardList.find(this);
-
+	//int idx = boardList.find(this);
 }
 void Symbol_g::useSymbolWhenRemove() {
 	int idx = boardList.find(this);
@@ -36,8 +29,7 @@ void Symbol_g::useSymbolWhenRemove() {
 	player.gainToken("remove");
 }
 void Symbol_h::useSymbolWhenRemove() {
-	int idx = boardList.find(this);
-
+	//int idx = boardList.find(this);
 }
 void Symbol_i::useSymbolWhenRemove() {
 	int idx = boardList.find(this);
@@ -45,16 +37,13 @@ void Symbol_i::useSymbolWhenRemove() {
 	symbolsList.add(new Symbol_a);
 }
 void Symbol_j::useSymbolWhenRemove() {
-	int idx = boardList.find(this);
-
+	//int idx = boardList.find(this);
 }
 void Symbol_k::useSymbolWhenRemove() {
-    int idx = boardList.find(this);
-
+    //int idx = boardList.find(this);
 }
 void Symbol_l::useSymbolWhenRemove() {
-    int idx = boardList.find(this);
-
+    //int idx = boardList.find(this);
 }
 void Symbol_m::useSymbolWhenRemove() {
     int idx = boardList.find(this);
@@ -66,6 +55,5 @@ void Symbol_m::useSymbolWhenRemove() {
     }
 }
 void Symbol_n::useSymbolWhenRemove() {
-    int idx = boardList.find(this);
-
+    //int idx = boardList.find(this);
 }
