@@ -150,8 +150,8 @@ public:
 };
 class Symbol_m : public Symbol {
 public:
-    Symbol_m() { icon = 'm'; baseMoney = 2; id = createId(); rarity = Common; }
-    explicit Symbol_m(int _id) { icon = 'm', baseMoney = 2; id = _id; rarity = Common; }
+    Symbol_m() { icon = 'm'; baseMoney = 2; id = createId(); rarity = Rare; }
+    explicit Symbol_m(int _id) { icon = 'm', baseMoney = 2; id = _id; rarity = Rare; }
     ~Symbol_m() override = default;
 
     Symbol_m* clone() const override { return new Symbol_m(); }

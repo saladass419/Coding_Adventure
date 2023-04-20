@@ -37,7 +37,7 @@ std::string Symbol_l::getAbility() {
     return "Destroys itself after 3 spins, 1 spin later if adjacent to 'h'";
 }
 std::string Symbol_m::getAbility() {
-    return "";
+    return "Destroys itself, adjacent symbols gain 2x money";
 }
 std::string Symbol_n::getAbility() {
     return "";

@@ -59,6 +59,11 @@ void Symbol_l::useSymbolWhenRemove() {
 void Symbol_m::useSymbolWhenRemove() {
     int idx = boardList.find(this);
 
+    for(int i = 0; i < boardList.count; i++){
+        if (Neutral::isNeighbour(i, idx) && boardList.data[i]->getIcon()!=' ') {
+            boardList.data[i]->addMultiplier(2);
+        }
+    }
 }
 void Symbol_n::useSymbolWhenRemove() {
     int idx = boardList.find(this);

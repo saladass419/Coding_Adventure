@@ -83,9 +83,9 @@ void Symbol_l::useSymbol() {
 }
 void Symbol_m::useSymbol() {
     int idx = boardList.find(this);
-
+    useSymbolWhenRemove();
+    symbolsList.remove(symbolsList.data[symbolsList.find(id)]);
 }
 void Symbol_n::useSymbol() {
     int idx = boardList.find(this);
-
 }

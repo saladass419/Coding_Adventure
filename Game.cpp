@@ -258,5 +258,5 @@ void GameManager::checkForRemove() {
 }
 
 void GameManager::printInfo() const {
-	std::cout << "Money in vault: " << player.getMoney() << "$ | Rent due in " << spinCounter << " spins ( " << rent << "$ ) | Remover tokens : " << player.getToken("remove") << std::endl << std::endl;
+	std::cout << "Money in vault: " << player.getMoney() << "$ | Rent due in " << spinCounter << " spins ( " << rent << "$ ) | Payments left: " <<rentCounter<<" | Remover tokens : " << player.getToken("remove") << std::endl << std::endl;
 }
