@@ -62,11 +62,11 @@ int List::find(Symbol* other) const {
 	return -1;
 }
 
-int List::find(int id) const {
+Symbol* List::find(int id) const {
 	for (int i = 0; i < count; i++) {
-		if (data[i]->getId() == id) return i;
+		if (data[i]->getId() == id) return data[i];
 	}
-	return -1;
+	return nullptr;
 }
 
 Symbol* List::getSymbolIcon(char _icon) const {

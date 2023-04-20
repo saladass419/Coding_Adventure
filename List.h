@@ -30,7 +30,7 @@ public:
 	virtual void useAll();
 
 	int find(Symbol* other) const;
-	int find(int id) const;
+	Symbol* find(int id) const;
 
 	bool contains(Symbol* other) const;
 	Symbol* getSymbolIcon(char _icon) const;

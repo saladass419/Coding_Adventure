@@ -15,13 +15,13 @@ void Item_b::useSymbol() {
 	}
 }
 void Item_c::useSymbol() {
-    if(dynamic_cast<Item_c*>(itemsList.data[itemsList.find(id)])->spins == 3) {
+    if(dynamic_cast<Item_c*>(itemsList.find(id))->spins == 3) {
         addBonus(3);
     }
-    if(dynamic_cast<Item_c*>(itemsList.data[itemsList.find(id)])->spins > 0)
-        dynamic_cast<Item_c*>(itemsList.data[itemsList.find(id)])->spins--;
+    if(dynamic_cast<Item_c*>(itemsList.find(id))->spins > 0)
+        dynamic_cast<Item_c*>(itemsList.find(id))->spins--;
     else{
-        dynamic_cast<Item_c*>(itemsList.data[itemsList.find(id)])->spins = 3;
+        dynamic_cast<Item_c*>(itemsList.find(id))->spins = 3;
         addBonus(3);
     }
 }
