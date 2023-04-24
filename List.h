@@ -18,9 +18,9 @@ public:
 	}
 	~List() {
 		for (int i = 0; i < count; i++) {
-			delete data[i];
+            delete data[i];
 		}
-		delete[]data;
+        delete[]data;
 	}
 
 	virtual void add(Symbol* newData);

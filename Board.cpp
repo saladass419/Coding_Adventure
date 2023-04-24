@@ -60,13 +60,13 @@ void Board::clearBoard() {
 	}
 }
 
-List Board::getNeighbours(Symbol *symbol) {
+/*List Board::getNeighbours(Symbol *symbol) {
     int idx = boardList.find(symbol);
     List result;
     for(int i = 0; i < boardList.count; i++){
         if(Neutral::isNeighbour(idx,i)){
-            result.add(boardList.data[i]);
+            result.add(boardList.data[i]); //should add the clone, otherwise it deletes the list twice -> fix this damn thing
         }
     }
     return result;
-}
+}*/
