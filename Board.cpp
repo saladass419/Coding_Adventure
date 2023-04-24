@@ -59,3 +59,14 @@ void Board::clearBoard() {
 		if (data[i]->getIcon() != ' ') remove(data[i]);
 	}
 }
+
+List Board::getNeighbours(Symbol *symbol) {
+    int idx = boardList.find(symbol);
+    List result;
+    for(int i = 0; i < boardList.count; i++){
+        if(Neutral::isNeighbour(idx,i)){
+            result.add(boardList.data[i]);
+        }
+    }
+    return result;
+}

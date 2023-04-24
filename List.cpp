@@ -76,6 +76,13 @@ Symbol* List::getSymbolIcon(char _icon) const {
 	return nullptr;
 }
 
+bool List::contains(int id) const {
+    for (int i = 0; i < count; i++) {
+        if (data[i]->getId() == id) return true;
+    }
+    return false;
+}
+
 
 
 

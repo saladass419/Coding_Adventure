@@ -33,6 +33,7 @@ public:
 	Symbol* find(int id) const;
 
 	bool contains(Symbol* other) const;
+    bool contains(int id) const;
 	Symbol* getSymbolIcon(char _icon) const;
 };
 
