@@ -33,5 +33,5 @@ void Item_d::useSymbol() {
 	}
 }
 void Item_e::useSymbol() {
-    Neutral::isAlwaysAdjacent = true; //will need to figure out late, why does this happen
+    Neutral::isAlwaysAdjacent = true;
 }

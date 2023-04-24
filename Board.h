@@ -22,8 +22,6 @@ public:
 
 	void clearBoard();
 	void fillBoard();
-
-    //List getNeighbours(Symbol*symbol);
 };
 
 extern Board boardList;

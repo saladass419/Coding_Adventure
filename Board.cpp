@@ -44,10 +44,10 @@ void Board::fillBoard() {
 	List tempSymbols(symbolsList.data, symbolsList.count);
     Neutral::shuffle(tempSymbols.data, tempSymbols.count);
 	for (int i = 0; i < (tempSymbols.count>count?count:tempSymbols.count); i++) {
-		add(tempSymbols.data[i]->copy()); //fill with symbols from the list
+		add(tempSymbols.data[i]->copy());
 	}
 	auto* temp = new Symbol;
-	for (int i = tempSymbols.count; i < count; i++) { //fill with empty symbols
+	for (int i = tempSymbols.count; i < count; i++) {
 		add(temp->clone());
 	}
 	delete temp;
@@ -60,13 +60,3 @@ void Board::clearBoard() {
 	}
 }
 
-/*List Board::getNeighbours(Symbol *symbol) {
-    int idx = boardList.find(symbol);
-    List result;
-    for(int i = 0; i < boardList.count; i++){
-        if(Neutral::isNeighbour(idx,i)){
-            result.add(boardList.data[i]); //should add the clone, otherwise it deletes the list twice -> fix this damn thing
-        }
-    }
-    return result;
-}*/
