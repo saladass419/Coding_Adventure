@@ -26,17 +26,18 @@ int main() {
 
 			manager.spinAnimation();
 			manager.printInfo();
-			manager.spin();
+			GameManager::spin();
 			Neutral::sleepfor(500);
 
-			manager.gainItemMoney();
-			manager.displayItemMoneyDistribution();
+			GameManager::gainItemMoney();
+			GameManager::displayItemMoneyDistribution();
 
-			manager.gainSymbolMoney();
-			manager.displaySymbolMoneyDistribution();
+			GameManager::gainSymbolMoney();
+			GameManager::displaySymbolMoneyDistribution();
 
 			rentPayedSuccessfully = manager.payRent();
 
+            std::cout<<"Press any key to continue..."<<std::endl;
             std::getchar();
 
             if (rentPayedSuccessfully) {
@@ -60,7 +61,7 @@ int main() {
 }
 
 void GameManager::displayCurrentSymbols() {
-	std::cout << "Your current symbols are: "; 
+	std::cout << "Your current symbols are ["<<symbolsList.count<<"]: ";
 	for (int i = 0; i < symbolTypes.count; i++) {
 		int amount = 0; 
 		for (int j = 0; j < symbolsList.count; j++) { 

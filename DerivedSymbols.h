@@ -136,6 +136,7 @@ public:
     std::string getAbility() override;
 };
 class Symbol_l : public Symbol {
+private:
     int lifeSpan = 3;
 public:
     Symbol_l() { icon = 'l'; baseMoney = 10; id = createId(); rarity = Rare; }

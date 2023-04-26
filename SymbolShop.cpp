@@ -34,7 +34,7 @@ void SymbolShop::purchase(int idx) {
 
 void SymbolShop::printList() {
 	for (int i = 0; i < count; i++) {
-		std::cout << i + 1 << ": " << data[i]->getIcon() << " - " << data[i]->getBaseMoney() << "$ | " << data[i]->getAbility() << std::endl;
+		std::cout << i + 1 << ": "<< data[i]->getIcon() << " - " << data[i]->getBaseMoney() << "$ | " << data[i]->getAbility() << std::endl;
 	}
 	std::cout << std::endl;
 }
@@ -43,12 +43,13 @@ void SymbolShop::fillShop(int turn) {
 	clearShop();
 	List temp;
 	for (int i = 0; i < symbolTypes.count; i++) {
-        int amount = symbolTypes.data[i]->getRarity()+1;
+        int amount = calculateChances(turn,symbolTypes.data[i]->getRarity());
 		for (int j = 0; j < amount; j++) {
 			temp.add(symbolTypes.data[i]->copy());
 		}
 	}
     Neutral::shuffle(temp.data, temp.count);
+
 	int added = 0;
 	for (int i = 0; i < temp.count; i++) {
 		if (getSymbolIcon(temp.data[i]->getIcon()) == nullptr) {
@@ -57,4 +58,14 @@ void SymbolShop::fillShop(int turn) {
 		}
 		if (added >= 3) break;
 	}
+}
+
+int SymbolShop::calculateChances(int turn, int rarity) {
+    int value;
+
+    if (turn>7) value = (4-rarity)*2;
+    else if(turn>3) value = (5-rarity)*2+2;
+    else value = rarity*2+2;
+
+    return value;
 }

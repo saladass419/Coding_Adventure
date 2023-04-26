@@ -13,6 +13,8 @@ public:
 	void printList() override;
 	void fillShop(int turn) override;
 	void purchase(int idx) override;
+
+    static int calculateChances(int turn, int rarity);
 };
 
 extern ItemShop itemShopList;

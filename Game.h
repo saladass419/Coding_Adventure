@@ -26,23 +26,23 @@ public:
 	int getSpinCounter() const { return spinCounter; }
 	int getRentCounter() const { return rentCounter; }
 
-	void gainItemMoney() { player.addToMoney(countItemMoney()); if (countItemMoney() > 0) { std::cout << countItemMoney() << "$ gained this spin from items" << std::endl; } }
-	void gainSymbolMoney() { player.addToMoney(countSymbolMoney()); std::cout << countSymbolMoney() << "$ gained this spin from symbols" << std::endl; }
+	static void gainItemMoney() { player.addToMoney(countItemMoney()); if (countItemMoney() > 0) { std::cout << countItemMoney() << "$ gained this spin from items" << std::endl; } }
+	static void gainSymbolMoney() { player.addToMoney(countSymbolMoney()); std::cout << countSymbolMoney() << "$ gained this spin from symbols" << std::endl; }
 
 	void printInfo() const;
 	static void setSymbolTypes();
 	static void setItemTypes();
 	static void generateStartingSymbols();
-	void displayCurrentSymbols();
-	void displayCurrentItems();
-	void displaySymbolMoneyDistribution();
-	long countSymbolMoney();
-	void displayItemMoneyDistribution();
-	long countItemMoney();
+	static void displayCurrentSymbols();
+	static void displayCurrentItems();
+	static void displaySymbolMoneyDistribution();
+	static long countSymbolMoney();
+	static void displayItemMoneyDistribution();
+	static long countItemMoney();
 	void symbolShopping();
 	void itemShopping();
 	void spinAnimation() const;
-	void spin();
+	static void spin();
 	void growRent();
 	bool payRent();
 	void checkForRemove();

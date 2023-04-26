@@ -4,7 +4,7 @@
 #include <string>
 
 enum Rarity {
-	Special, VeryRare, Rare, Uncommon, Common
+    Common,Uncommon, Rare, VeryRare, Special
 };
 
 class Symbol {
@@ -31,6 +31,7 @@ public:
 	void addToBaseMoney(int _baseMoney) { baseMoney += _baseMoney; }
 	char getIcon() const { return icon; }
 	int getRarity() { return rarity; }
+    std::string getRarityString();
 	int getBaseMoney() const { return baseMoney; }
 	long getMoney() const { return (baseMoney + bonus) * multiplier; }
 	int getId() const { return id; }

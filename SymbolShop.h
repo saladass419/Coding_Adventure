@@ -19,6 +19,7 @@ public:
 	void remove(Symbol* oldData) override;
 	void printList() override;
 
+    static int calculateChances(int turn, int rarity);
 	void clearShop();
 	virtual void fillShop(int turn);
 	virtual void purchase(int idx);

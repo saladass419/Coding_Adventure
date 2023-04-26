@@ -3,7 +3,7 @@
 
 void ItemShop::printList() {
 	for (int i = 0; i < count; i++) {
-		std::cout << i + 1 << ": " << data[i]->getIcon() << " | " << data[i]->getAbility() << std::endl;
+		std::cout << i + 1 << ": " << data[i]->getIcon()<<" | " << data[i]->getAbility() << std::endl;
 	}
 	std::cout << std::endl;
 }
@@ -11,7 +11,7 @@ void ItemShop::fillShop(int turn) {
 	clearShop();
 	List temp;
 	for (int i = 0; i < itemTypes.count; i++) {
-        int amount = itemTypes.data[i]->getRarity() + 1;
+        int amount = calculateChances(turn,itemTypes.data[i]->getRarity());
 		for (int j = 0; j < amount; j++) {
 			temp.add(itemTypes.data[i]->copy());
 		}
@@ -28,4 +28,14 @@ void ItemShop::fillShop(int turn) {
 }
 void ItemShop::purchase(int idx) {
 	itemsList.add(data[idx]->clone());
+}
+
+int ItemShop::calculateChances(int turn, int rarity) {
+    int value;
+
+    if (turn>7) value = (5-rarity)*2;
+    else if(turn>3) value = abs(4-rarity)*2+2;
+    else value = rarity*2+2;
+
+    return value;
 }
