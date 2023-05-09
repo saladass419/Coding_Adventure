@@ -13,19 +13,3 @@ std::string Symbol::getAbility() {
 void Symbol::useSymbol() {
     //int idx = boardList.find(this);
 }
-
-std::string Symbol::getRarityString() {
-    switch (rarity) {
-        case Common:
-            return "Common";
-        case Uncommon:
-            return"Uncommon";
-        case Rare:
-            return"Rare";
-        case VeryRare:
-            return"Very Rare";
-        case Special:
-            return "Special";
-    }
-    return "";
-}
