@@ -25,7 +25,7 @@ std::string Symbol_h::getAbility() {
 	return "Adjacent 'b' and 'c' gain 2x money";
 }
 std::string Symbol_i::getAbility() {
-	return "";
+	return "Has a 10 percent chance of adding a 'c'";
 }
 std::string Symbol_j::getAbility() {
 	return "Destroys adjacent 'i', gains 2x money for each";

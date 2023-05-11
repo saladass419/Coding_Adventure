@@ -31,6 +31,18 @@ public:
         std::mt19937_64 rng(std::chrono::high_resolution_clock::now().time_since_epoch().count());
         std::shuffle(list, list + count, rng);
     }
+
+    ///Calculates if a specific event is  happening or not from the chances of that event
+    ///@param a - chance of the event happening
+    ///@param b - the total amount of 100%
+    static bool chanceCalculator(double a, double b = 100){
+        std::random_device rd;
+        std::mt19937 rnd(rd());
+        std::uniform_real_distribution<double> dist(0, b);
+
+        if(dist(rnd)<=a) return true;
+        return false;
+    }
 };
 
 #endif // !NEUTRAL_H

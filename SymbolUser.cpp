@@ -2,10 +2,10 @@
 #include <iostream>
 
 void Symbol_a::useSymbol() {
-	//int idx = boardList.find(this);
+
 }
 void Symbol_b::useSymbol() {
-	//int idx = boardList.find(this);
+
 }
 void Symbol_c::useSymbol() {
 
@@ -51,7 +51,9 @@ void Symbol_h::useSymbol() {
 }
 
 void Symbol_i::useSymbol() {
-
+    if(Neutral::chanceCalculator(10)){
+        symbolsList.add(new Symbol_c());
+    }
 }
 void Symbol_j::useSymbol() {
     int idx = boardList.find(this);
@@ -92,7 +94,6 @@ void Symbol_l::useSymbol() {
     if(dynamic_cast<Symbol_l*>(symbolsList.find(id))->lifeSpan <= 0) symbolsList.remove(symbolsList.find(id));
 }
 void Symbol_m::useSymbol() {
-    int idx = boardList.find(this);
     useSymbolWhenRemove();
     symbolsList.remove(symbolsList.find(id));
 }
