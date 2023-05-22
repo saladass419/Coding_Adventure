@@ -30,8 +30,8 @@ public:
 class Item_c : public Symbol {
     int spins = 3;
 public:
-	Item_c() { icon = 'c'; baseMoney = 0; id = createId(); rarity = Common; }
-	explicit Item_c(int _id) { icon = 'c', baseMoney = 0; id = _id; rarity = Common; }
+	Item_c() { icon = 'c'; baseMoney = 0; id = createId(); rarity = Rare; }
+	explicit Item_c(int _id) { icon = 'c', baseMoney = 0; id = _id; rarity = Rare; }
 	~Item_c() override = default;
 
 	Item_c* clone() const override { return new Item_c(); }
@@ -41,8 +41,8 @@ public:
 };
 class Item_d : public Symbol {
 public:
-	Item_d() { icon = 'd'; baseMoney = 0; id = createId(); rarity = Common; }
-	explicit Item_d(int _id) { icon = 'd', baseMoney = 0; id = _id; rarity = Common; }
+	Item_d() { icon = 'd'; baseMoney = 0; id = createId(); rarity = Uncommon; }
+	explicit Item_d(int _id) { icon = 'd', baseMoney = 0; id = _id; rarity = Uncommon; }
 	~Item_d() override = default;
 
 	Item_d* clone() const override { return new Item_d(); }

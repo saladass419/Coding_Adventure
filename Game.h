@@ -10,7 +10,6 @@
 #include "Board.h"
 #include "ItemShop.h"
 #include "SymbolShop.h"
-#include "ReadFile.h"
 #include <iostream>
 #include <limits>
 

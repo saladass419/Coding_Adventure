@@ -98,5 +98,5 @@ void Symbol_m::useSymbol() {
     symbolsList.remove(symbolsList.find(id));
 }
 void Symbol_n::useSymbol() {
-    int idx = boardList.find(this);
+    ///Uses ability when destroyed
 }

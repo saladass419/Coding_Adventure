@@ -23,8 +23,6 @@ void Symbol_f::useSymbolWhenRemove() {
 	//int idx = boardList.find(this);
 }
 void Symbol_g::useSymbolWhenRemove() {
-	int idx = boardList.find(this);
-
 	player.gainToken("reroll");
 	player.gainToken("remove");
 }
@@ -32,8 +30,6 @@ void Symbol_h::useSymbolWhenRemove() {
 	//int idx = boardList.find(this);
 }
 void Symbol_i::useSymbolWhenRemove() {
-	int idx = boardList.find(this);
-
 	symbolsList.add(new Symbol_a);
 }
 void Symbol_j::useSymbolWhenRemove() {
@@ -55,5 +51,5 @@ void Symbol_m::useSymbolWhenRemove() {
     }
 }
 void Symbol_n::useSymbolWhenRemove() {
-    //int idx = boardList.find(this);
+    symbolsList.add(new Symbol_f);
 }
