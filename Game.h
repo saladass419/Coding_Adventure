@@ -94,6 +94,9 @@ void GameManager::setSymbolTypes() {
     symbolTypes.add(new Symbol_Owner);
     symbolTypes.add(new Symbol_Stranger);
     symbolTypes.add(new Symbol_Insect);
+    symbolTypes.add(new Symbol_Granny);
+    symbolTypes.add(new Symbol_TreasureChest);
+    symbolTypes.add(new Symbol_TreasureKey);
 
 }
 
@@ -109,8 +112,9 @@ void GameManager::generateStartingSymbols() {
 	symbolsList.add(symbolTypes.getSymbolIcon("Fl")->clone());
 	symbolsList.add(symbolTypes.getSymbolIcon("Wi")->clone());
 	symbolsList.add(symbolTypes.getSymbolIcon("Do")->clone());
-	symbolsList.add(symbolTypes.getSymbolIcon("Be")->clone());
-	symbolsList.add(symbolTypes.getSymbolIcon("In")->clone());
+
+	symbolsList.add(symbolTypes.getSymbolIcon("Tc")->clone());
+	symbolsList.add(symbolTypes.getSymbolIcon("Tk")->clone());
 }
 
 #endif // !GAME_H

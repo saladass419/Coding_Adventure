@@ -40,8 +40,8 @@ void Symbol_Rain::useSymbol() {
     if(Neutral::chanceCalculator(5)){
         symbolsList.add(new Symbol_Flower);
     }
-    dynamic_cast<Symbol_Rain*>(symbolsList.find(id))->lifeSpan--;
-    if(dynamic_cast<Symbol_Rain*>(symbolsList.find(id))->lifeSpan <= 0) symbolsList.remove(symbolsList.find(id));
+    symbolsList.find(id)->addToValue(-1);
+    if(symbolsList.find(id)->getValue() <= 0) symbolsList.remove(symbolsList.find(id));
 }
 
 void Symbol_Drunk::useSymbol() {
@@ -161,6 +161,39 @@ void Symbol_Insect::useSymbol() {
             }
             if (boardList.data[i]->getIcon() == "In") {
                 addBonus(5);
+            }
+        }
+    }
+}
+void Symbol_Granny::useSymbol() {
+    int idx = boardList.find(this);
+    for(int i = 0; i < boardList.count; i++) {
+        if (Neutral::isNeighbour(i, idx)) {
+            if (boardList.data[i]->getIcon() == "Ch"||boardList.data[i]->getIcon() == "Ow") {
+                boardList.data[i]->addMultiplier(2);
+                addToValue(5);
+            }
+        }
+    }
+    addToValue(10);
+    symbolsList.find(id)->setValue(getValue());
+    if(Neutral::chanceCalculator(20)){
+        useSymbolWhenRemove();
+        symbolsList.remove(symbolsList.find(id));
+    }
+}
+void Symbol_TreasureKey::useSymbol() {
+    int idx = boardList.find(this);
+    for(int i = 0; i < boardList.count; i++) {
+        if (Neutral::isNeighbour(i, idx)) {
+            if (boardList.data[i]->getIcon() == "Tc") {
+                if(boardList.data[i]->isUsed()) continue;
+                boardList.data[i]->setUsed(true);
+                used = true;
+                boardList.data[i]->useSymbolWhenRemove();
+                symbolsList.remove(symbolsList.find(boardList.data[i]->getId()));
+                symbolsList.remove(symbolsList.find(id));
+                break;
             }
         }
     }

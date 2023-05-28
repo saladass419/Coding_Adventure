@@ -48,6 +48,15 @@ std::string Symbol_Owner::getAbility() {
 std::string Symbol_Stranger::getAbility() {
     return "Stranger:";
 }
-std::string  Symbol_Insect::getAbility() {
+std::string Symbol_Insect::getAbility() {
     return "Insect:";
+}
+std::string Symbol_Granny::getAbility() {
+    return "Granny:";
+}
+std::string Symbol_TreasureChest::getAbility() {
+    return "TreasureChest:";
+}
+std::string Symbol_TreasureKey::getAbility() {
+    return "TreasureKey:";
 }

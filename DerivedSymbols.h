@@ -77,7 +77,6 @@ public:
 	std::string getAbility() override;
 };
 class Symbol_Rain : public Symbol {
-    int lifeSpan = 3;
 public:
 	Symbol_Rain() { icon = "Ra"; baseMoney = 3; id = createId(); rarity = Rare; }
 	explicit Symbol_Rain(int _id) { icon = "Ra", baseMoney = 3; id = _id; rarity = Rare; }
@@ -212,41 +211,42 @@ public:
     void useSymbolWhenRemove() override {}
     std::string getAbility() override;
 };
-class Symbol_c : public Symbol {
-public:
-    Symbol_c() { icon = 'p'; baseMoney = 6; id = createId(); rarity = VeryRare; }
-    explicit Symbol_c(int _id) { icon = 'p', baseMoney = 6; id = _id; rarity = VeryRare; }
-    ~Symbol_c() override = default;
 
-    Symbol_c* clone() const override { return new Symbol_c(); }
-    Symbol_c* copy() const override { return new Symbol_c(this->id); }
-    void useSymbol() override {}
-    void useSymbolWhenRemove() override {}
-    //std::string getAbility() override;
+class Symbol_Granny : public Symbol {
+public:
+    Symbol_Granny() { icon = "Gy"; baseMoney = 0; id = createId(); rarity = Rare; }
+    explicit Symbol_Granny(int _id) { icon = "Gy", baseMoney = 0; id = _id; rarity = Rare; }
+    ~Symbol_Granny() override = default;
+
+    Symbol_Granny* clone() const override { return new Symbol_Granny(); }
+    Symbol_Granny* copy() const override { return new Symbol_Granny(this->id); }
+    void useSymbol() override;
+    void useSymbolWhenRemove() override;
+    std::string getAbility() override;
 };
-class Symbol_d : public Symbol {
+class Symbol_TreasureChest : public Symbol {
 public:
-    Symbol_d() { icon = 'p'; baseMoney = 6; id = createId(); rarity = VeryRare; }
-    explicit Symbol_d(int _id) { icon = 'p', baseMoney = 6; id = _id; rarity = VeryRare; }
-    ~Symbol_d() override = default;
+    Symbol_TreasureChest() { icon = "Tc"; baseMoney = 1; id = createId(); rarity = Uncommon; }
+    explicit Symbol_TreasureChest(int _id) { icon = "Tc", baseMoney = 1; id = _id; rarity = Uncommon; }
+    ~Symbol_TreasureChest() override = default;
 
-    Symbol_d* clone() const override { return new Symbol_d(); }
-    Symbol_d* copy() const override { return new Symbol_d(this->id); }
+    Symbol_TreasureChest* clone() const override { return new Symbol_TreasureChest(); }
+    Symbol_TreasureChest* copy() const override { return new Symbol_TreasureChest(this->id); }
     void useSymbol() override {}
-    void useSymbolWhenRemove() override {}
-    //std::string getAbility() override;
+    void useSymbolWhenRemove() override;
+    std::string getAbility() override;
 };
-class Symbol_e : public Symbol {
+class Symbol_TreasureKey : public Symbol {
 public:
-    Symbol_e() { icon = 'p'; baseMoney = 6; id = createId(); rarity = VeryRare; }
-    explicit Symbol_e(int _id) { icon = 'p', baseMoney = 6; id = _id; rarity = VeryRare; }
-    ~Symbol_e() override = default;
+    Symbol_TreasureKey() { icon = "Tk"; baseMoney = 1; id = createId(); rarity = Rare; }
+    explicit Symbol_TreasureKey(int _id) { icon = "Tk", baseMoney = 1; id = _id; rarity = Rare; }
+    ~Symbol_TreasureKey() override = default;
 
-    Symbol_e* clone() const override { return new Symbol_e(); }
-    Symbol_e* copy() const override { return new Symbol_e(this->id); }
-    void useSymbol() override {}
+    Symbol_TreasureKey* clone() const override { return new Symbol_TreasureKey(); }
+    Symbol_TreasureKey* copy() const override { return new Symbol_TreasureKey(this->id); }
+    void useSymbol() override;
     void useSymbolWhenRemove() override {}
-    //std::string getAbility() override;
+    std::string getAbility() override;
 };
 
 #endif // !DERIVEDSYMBOLS_H

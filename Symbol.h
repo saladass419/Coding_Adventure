@@ -17,6 +17,9 @@ protected:
 	int id; ///< Unique ID of this symbol (int)
 	Rarity rarity; ///< Rarity of the symbol (Rarity)
 
+    bool used = false;
+    int value = 0;
+
     ///Creates a unique ID for the symbol
     ///@return the created ID (int)
 	int createId() const;
@@ -56,6 +59,12 @@ public:
 	void addBonus(int amount) { bonus += amount; }
     ///Resets the symbol's bonus and multiplier values
 	void resetSymbol() { bonus = 0; multiplier = 1; }
+
+    int getValue() const { return value; }
+    void addToValue(int amount) { value += amount; }
+    void setValue(int amount) { value = amount; }
+    bool isUsed() const { return used; }
+    void setUsed(bool _used) { used = _used; }
 };
 
 #endif // !SYMBOL_H
