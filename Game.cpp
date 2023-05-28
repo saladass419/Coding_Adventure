@@ -73,7 +73,7 @@ void GameManager::displayCurrentSymbols() {
 	}
 	int amount = 0;
 	for (int j = 0; j < symbolsList.count; j++) {
-		if (symbolsList.data[j]->getIcon() == ' ') amount++;
+		if (symbolsList.data[j]->getIcon() == "  ") amount++;
 	}
 	if (amount > 0) {
 		std::cout << "empty(" << amount << ") ";
@@ -117,7 +117,7 @@ void GameManager::displayItemMoneyDistribution() {
 long GameManager::countSymbolMoney() {
 	long result = 0;
 	for (int i = 0; i < boardList.count; i++) {
-		if (boardList.data[i]->getIcon() != ' ') {
+		if (boardList.data[i]->getIcon() != "  ") {
 			result += boardList.data[i]->getMoney();
 		}
 	}
@@ -241,7 +241,7 @@ void GameManager::checkForRemove() {
         if (player.getToken("remove") > 0) {
             displayCurrentSymbols();
             std::cout << "Input the symbol you wish to remove: ";
-            char input;
+            std::string input;
             std::cin >> input;
             for (int i = 0; i < symbolsList.count; i++) {
                 if (symbolsList.data[i]->getIcon() == input) {

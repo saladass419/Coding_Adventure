@@ -1,44 +1,53 @@
 #include "DerivedSymbols.h"
 
-std::string Symbol_a::getAbility() {
-	return "";
+std::string Symbol_Flower::getAbility() {
+	return "Flower";
 }
-std::string Symbol_b::getAbility() {
-	return "";
+std::string Symbol_Wine::getAbility() {
+	return "Wine";
 }
-std::string Symbol_c::getAbility() {
-	return "";
+std::string Symbol_Dog::getAbility() {
+	return "Dog";
 }
-std::string Symbol_d::getAbility() {
-	return "Adjacent 'a' gain 2x money, gains 2$ more for every adjacent 'a'";
+std::string Symbol_Bee::getAbility() {
+	return "Bee: Adjacent 'Flower' gain 2x money, gains 2$ more for every adjacent 'Flower'";
 }
-std::string Symbol_e::getAbility() {
-	return "Gains 4$ more when it's in a corner";
+std::string Symbol_Sun::getAbility() {
+	return "Sun:";
 }
-std::string Symbol_f::getAbility() {
-	return "Gains 1$ for every adjacent empty slot";
+std::string Symbol_BeeHive::getAbility() {
+	return "BeeHive:";
 }
-std::string Symbol_g::getAbility() {
-	return "Destroys itself, gives 1 reroll and 1 remove token";
+std::string Symbol_Rain::getAbility() {
+	return "Rain:";
 }
-std::string Symbol_h::getAbility() {
-	return "Adjacent 'b' and 'c' gain 2x money";
+std::string Symbol_Drunk::getAbility() {
+	return "Drunk:";
 }
-std::string Symbol_i::getAbility() {
-	return "Has a 10% chance of adding 'c'";
+std::string Symbol_Bartender::getAbility() {
+	return "Bartender:";
 }
-std::string Symbol_j::getAbility() {
-	return "Destroys adjacent 'i', gains 2x money for each";
+std::string Symbol_Grape::getAbility() {
+	return "Grape:";
 }
-std::string Symbol_k::getAbility() {
-    return "Adjacent 'a' gain 5x money";
+std::string Symbol_FineWine::getAbility() {
+    return "FineWine:";
 }
-std::string Symbol_l::getAbility() {
-    return "Destroys itself after 3 spins, 1 spin later if adjacent to 'h'";
+std::string Symbol_Child::getAbility() {
+    return "Child:";
 }
-std::string Symbol_m::getAbility() {
-    return "Destroys itself, adjacent symbols gain 2x money";
+std::string Symbol_Sommelier::getAbility() {
+    return "Sommelier:";
 }
-std::string Symbol_n::getAbility() {
-    return "Adds 'f' when destroyed";
+std::string Symbol_Vet::getAbility() {
+    return "Vet:";
+}
+std::string Symbol_Owner::getAbility() {
+    return "Owner:";
+}
+std::string Symbol_Stranger::getAbility() {
+    return "Stranger:";
+}
+std::string  Symbol_Insect::getAbility() {
+    return "Insect:";
 }

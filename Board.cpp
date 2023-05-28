@@ -3,9 +3,9 @@
 
 void Board::add(Symbol* newData) {
 	for (int i = 0; i < count; i++) {
-		if (data[i]->getIcon()==' ') {
+		if (data[i]->getIcon() == "  ") {
 			delete data[i];
-			data[i] = newData; 
+			data[i] = newData;
 			return;
 		}
 	}
@@ -35,7 +35,7 @@ void Board::printList() {
 
 void Board::useAll() {
 	for (int i = 0; i < count; i++) {
-		if (data[i]->getIcon() != ' ') data[i]->useSymbol();
+		if (data[i]->getIcon() != "  ") data[i]->useSymbol();
 	}
 }
 
@@ -56,7 +56,7 @@ void Board::fillBoard() {
 
 void Board::clearBoard() {
 	for (int i = 0; i < count; i++) {
-		if (data[i]->getIcon() != ' ') remove(data[i]);
+		if (data[i]->getIcon() != "  ") remove(data[i]);
 	}
 }
 

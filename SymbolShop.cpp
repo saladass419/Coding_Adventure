@@ -3,7 +3,7 @@
 
 void SymbolShop::add(Symbol* newData) {
 	for (int i = 0; i < count; i++) {
-		if (data[i]->getIcon() == ' ') {
+		if (data[i]->getIcon() == "  ") {
 			delete data[i];
 			data[i] = newData;
 			return;
@@ -24,7 +24,7 @@ void SymbolShop::remove(Symbol* oldData) {
 
 void SymbolShop::clearShop() {
 	for (int i = 0; i < count; i++) {
-		if (data[i]->getIcon() != ' ') remove(data[i]);
+		if (data[i]->getIcon() != "  ") remove(data[i]);
 	}
 }
 
@@ -34,7 +34,7 @@ void SymbolShop::purchase(int idx) {
 
 void SymbolShop::printList() {
 	for (int i = 0; i < count; i++) {
-		std::cout << i + 1 << ": "<< data[i]->getIcon() << " - " << data[i]->getBaseMoney() << "$ | " << data[i]->getAbility() << std::endl;
+		std::cout << i + 1 << ": "<<data[i]->getIcon() << " - " << data[i]->getBaseMoney() << "$ | " << data[i]->getAbility() << std::endl;
 	}
 	std::cout << std::endl;
 }

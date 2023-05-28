@@ -69,7 +69,7 @@ Symbol* List::find(int id) const {
 	return nullptr;
 }
 
-Symbol* List::getSymbolIcon(char _icon) const {
+Symbol* List::getSymbolIcon(const std::string& _icon) const {
 	for (int i = 0; i < count; i++) {
 		if (data[i]->getIcon() == _icon) return data[i];
 	}

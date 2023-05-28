@@ -2,14 +2,14 @@
 
 void Item_a::useSymbol() {
 	for (int i = 0; i < boardList.count; i++) {
-		if (boardList.data[i]->getIcon() == ' ') {
+		if (boardList.data[i]->getIcon() == "  ") {
 			addBonus(1);
 		}
 	}
 }
 void Item_b::useSymbol() {
 	for (int i = 0; i < boardList.count; i++) {
-		if (boardList.data[i]->getIcon() == 'a') {
+		if (boardList.data[i]->getIcon() == "Fl") {
 			addBonus(1);
 		}
 	}
@@ -27,7 +27,7 @@ void Item_c::useSymbol() {
 }
 void Item_d::useSymbol() {
 	for (int i = 0; i < boardList.count; i++) {
-		if (boardList.data[i]->getIcon() != ' ') {
+		if (boardList.data[i]->getIcon() != "  ") {
 			addBonus(1);
 		}
 	}

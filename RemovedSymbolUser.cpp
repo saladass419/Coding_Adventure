@@ -1,55 +1,15 @@
 #include "Board.h"
 #include "Player.h"
 
-void Symbol::useSymbolWhenRemove() {
-	//int idx = boardList.find(this);
+void Symbol_Bartender::useSymbolWhenRemove() {
+	symbolsList.add(new Symbol_Flower);
 }
-void Symbol_a::useSymbolWhenRemove() {
-	//int idx = boardList.find(this);
-}
-void Symbol_b::useSymbolWhenRemove() {
-	//int idx = boardList.find(this);
-}
-void Symbol_c::useSymbolWhenRemove() {
-	//int idx = boardList.find(this);
-}
-void Symbol_d::useSymbolWhenRemove() {
-	//int idx = boardList.find(this);
-}
-void Symbol_e::useSymbolWhenRemove() {
-	//int idx = boardList.find(this);
-}
-void Symbol_f::useSymbolWhenRemove() {
-	//int idx = boardList.find(this);
-}
-void Symbol_g::useSymbolWhenRemove() {
-	player.gainToken("reroll");
-	player.gainToken("remove");
-}
-void Symbol_h::useSymbolWhenRemove() {
-	//int idx = boardList.find(this);
-}
-void Symbol_i::useSymbolWhenRemove() {
-	symbolsList.add(new Symbol_a);
-}
-void Symbol_j::useSymbolWhenRemove() {
-	//int idx = boardList.find(this);
-}
-void Symbol_k::useSymbolWhenRemove() {
-    //int idx = boardList.find(this);
-}
-void Symbol_l::useSymbolWhenRemove() {
-    //int idx = boardList.find(this);
-}
-void Symbol_m::useSymbolWhenRemove() {
+void Symbol_Sommelier::useSymbolWhenRemove() {
     int idx = boardList.find(this);
 
     for(int i = 0; i < boardList.count; i++){
-        if (Neutral::isNeighbour(i, idx) && boardList.data[i]->getIcon()!=' ') {
+        if (Neutral::isNeighbour(i, idx) && boardList.data[i]->getIcon()!="  ") {
             boardList.data[i]->addMultiplier(2);
         }
     }
-}
-void Symbol_n::useSymbolWhenRemove() {
-    symbolsList.add(new Symbol_f);
 }

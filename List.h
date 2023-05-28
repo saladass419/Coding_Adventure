@@ -56,7 +56,7 @@ public:
     ///Returns a symbol by an icon
     ///@param _icon - icon of the desired symbol (char)
     ///@return pointer to the found symbol (Symbol*)
-	Symbol* getSymbolIcon(char _icon) const;
+	Symbol* getSymbolIcon(const std::string& _icon) const;
 };
 
 extern List symbolTypes;

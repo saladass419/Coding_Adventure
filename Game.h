@@ -77,20 +77,24 @@ public:
 };
 
 void GameManager::setSymbolTypes() {
-	symbolTypes.add(new Symbol_a); 
-	symbolTypes.add(new Symbol_b);
-	symbolTypes.add(new Symbol_c);
-	symbolTypes.add(new Symbol_d);
-	symbolTypes.add(new Symbol_e);
-	symbolTypes.add(new Symbol_f);
-	symbolTypes.add(new Symbol_g);
-	symbolTypes.add(new Symbol_h);
-	symbolTypes.add(new Symbol_i);
-	symbolTypes.add(new Symbol_j);
-    symbolTypes.add(new Symbol_k);
-    symbolTypes.add(new Symbol_l);
-    symbolTypes.add(new Symbol_m);
-    symbolTypes.add(new Symbol_n);
+	symbolTypes.add(new Symbol_Flower);
+	symbolTypes.add(new Symbol_Wine);
+	symbolTypes.add(new Symbol_Dog);
+	symbolTypes.add(new Symbol_Bee);
+	symbolTypes.add(new Symbol_Sun);
+	symbolTypes.add(new Symbol_BeeHive);
+	symbolTypes.add(new Symbol_Rain);
+	symbolTypes.add(new Symbol_Drunk);
+	symbolTypes.add(new Symbol_Bartender);
+	symbolTypes.add(new Symbol_Grape);
+    symbolTypes.add(new Symbol_FineWine);
+    symbolTypes.add(new Symbol_Child);
+    symbolTypes.add(new Symbol_Sommelier);
+    symbolTypes.add(new Symbol_Vet);
+    symbolTypes.add(new Symbol_Owner);
+    symbolTypes.add(new Symbol_Stranger);
+    symbolTypes.add(new Symbol_Insect);
+
 }
 
 void GameManager::setItemTypes() {
@@ -102,11 +106,11 @@ void GameManager::setItemTypes() {
 }
 
 void GameManager::generateStartingSymbols() {
-	symbolsList.add(symbolTypes.getSymbolIcon('a')->clone());
-	symbolsList.add(symbolTypes.getSymbolIcon('b')->clone());
-	symbolsList.add(symbolTypes.getSymbolIcon('c')->clone());
-	symbolsList.add(symbolTypes.getSymbolIcon('d')->clone());
-	symbolsList.add(symbolTypes.getSymbolIcon('e')->clone());
+	symbolsList.add(symbolTypes.getSymbolIcon("Fl")->clone());
+	symbolsList.add(symbolTypes.getSymbolIcon("Wi")->clone());
+	symbolsList.add(symbolTypes.getSymbolIcon("Do")->clone());
+	symbolsList.add(symbolTypes.getSymbolIcon("Be")->clone());
+	symbolsList.add(symbolTypes.getSymbolIcon("In")->clone());
 }
 
 #endif // !GAME_H
