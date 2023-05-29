@@ -1,6 +1,7 @@
 #ifndef NEUTRAL_H
 #define NEUTRAL_H
 
+#include "memtrace.h"
 #include <chrono>
 #include <thread>
 #include <unistd.h>

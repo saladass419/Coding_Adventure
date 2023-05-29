@@ -1,6 +1,7 @@
 #ifndef SHOP_H
 #define SHOP_H
 
+#include "memtrace.h"
 #include "Neutral.h"
 #include "List.h"
 

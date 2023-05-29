@@ -1,4 +1,5 @@
 #include "Board.h"
+#include "memtrace.h"
 #include <iostream>
 
 void Board::add(Symbol* newData) {
@@ -39,9 +40,9 @@ void Board::useAll() {
 	}
 }
 
-void Board::fillBoard() {
+void Board::fillBoard(List& sourceList) {
 	clearBoard();
-	List tempSymbols(symbolsList.data, symbolsList.count);
+	List tempSymbols(sourceList.data, sourceList.count);
     Neutral::shuffle(tempSymbols.data, tempSymbols.count);
 	for (int i = 0; i < (tempSymbols.count>count?count:tempSymbols.count); i++) {
 		add(tempSymbols.data[i]->copy());

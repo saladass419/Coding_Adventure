@@ -1,63 +1,73 @@
 #ifndef ITEM_H
 #define ITEM_H
 
+#include "memtrace.h"
 #include "Symbol.h"
 #include <string>
 
-class Item_a : public Symbol {
+class Item_TinyPlace : public Symbol {
 public:
-	Item_a() { icon = 'a'; baseMoney = 0; id = createId(); rarity = Common; }
-	explicit Item_a(int _id) { icon = 'a', baseMoney = 0; id = _id; rarity = Common; }
-	~Item_a() override = default;
+	Item_TinyPlace() { icon = "Tp"; baseMoney = 0; id = createId(); rarity = Special; }
+	explicit Item_TinyPlace(int _id) { icon = "Tp", baseMoney = 0; id = _id; rarity = Special; }
+	~Item_TinyPlace() override = default;
 
-	Item_a* clone() const override { return new Item_a(); }
-	Item_a* copy() const override { return new Item_a(this->id); }
+	Item_TinyPlace* clone() const override { return new Item_TinyPlace(); }
+	Item_TinyPlace* copy() const override { return new Item_TinyPlace(this->id); }
 	void useSymbol() override;
 	std::string getAbility() override;
 };
-class Item_b : public Symbol {
+class Item_LeafClover : public Symbol {
 public:
-	Item_b() { icon = 'b'; baseMoney = 0; id = createId(); rarity = Uncommon; }
-	explicit Item_b(int _id) { icon = 'b', baseMoney = 0; id = _id; rarity = Uncommon; }
-	~Item_b() override = default;
+	Item_LeafClover() { icon = "Lc"; baseMoney = 0; id = createId(); rarity = Uncommon; }
+	explicit Item_LeafClover(int _id) { icon = "Lc", baseMoney = 0; id = _id; rarity = Uncommon; }
+	~Item_LeafClover() override = default;
 
-	Item_b* clone() const override { return new Item_b(); }
-	Item_b* copy() const override { return new Item_b(this->id); }
+	Item_LeafClover* clone() const override { return new Item_LeafClover(); }
+	Item_LeafClover* copy() const override { return new Item_LeafClover(this->id); }
 	void useSymbol() override;
 	std::string getAbility() override;
 };
-
-class Item_c : public Symbol {
-    int spins = 3;
+class Item_Timer : public Symbol {
 public:
-	Item_c() { icon = 'c'; baseMoney = 0; id = createId(); rarity = Rare; }
-	explicit Item_c(int _id) { icon = 'c', baseMoney = 0; id = _id; rarity = Rare; }
-	~Item_c() override = default;
+	Item_Timer() { icon = "Ti"; baseMoney = 0; id = createId(); rarity = Common; value = 3; }
+	explicit Item_Timer(int _id) { icon = "Ti", baseMoney = 0; id = _id; rarity = Common; value = 3; }
+	~Item_Timer() override = default;
 
-	Item_c* clone() const override { return new Item_c(); }
-	Item_c* copy() const override { return new Item_c(this->id); }
+	Item_Timer* clone() const override { return new Item_Timer(); }
+	Item_Timer* copy() const override { return new Item_Timer(this->id); }
 	void useSymbol() override;
 	std::string getAbility() override;
 };
-class Item_d : public Symbol {
+class Item_CoinCollector : public Symbol {
 public:
-	Item_d() { icon = 'd'; baseMoney = 0; id = createId(); rarity = Uncommon; }
-	explicit Item_d(int _id) { icon = 'd', baseMoney = 0; id = _id; rarity = Uncommon; }
-	~Item_d() override = default;
+	Item_CoinCollector() { icon = "Cc"; baseMoney = 0; id = createId(); rarity = Rare; }
+	explicit Item_CoinCollector(int _id) { icon = "Cc", baseMoney = 0; id = _id; rarity = Rare; }
+	~Item_CoinCollector() override = default;
 
-	Item_d* clone() const override { return new Item_d(); }
-	Item_d* copy() const override { return new Item_d(this->id); }
+	Item_CoinCollector* clone() const override { return new Item_CoinCollector(); }
+	Item_CoinCollector* copy() const override { return new Item_CoinCollector(this->id); }
 	void useSymbol() override;
 	std::string getAbility() override;
 };
-class Item_e : public Symbol {
+class Item_MailMan : public Symbol {
 public:
-    Item_e() { icon = 'e'; baseMoney = 0; id = createId(); rarity = Special; }
-    explicit Item_e(int _id) { icon = 'e', baseMoney = 0; id = _id; rarity = Special; }
-    ~Item_e() override = default;
+    Item_MailMan() { icon = "Mm"; baseMoney = 3; id = createId(); rarity = Uncommon; }
+    explicit Item_MailMan(int _id) { icon = "Mm", baseMoney = 3; id = _id; rarity = Uncommon; }
+    ~Item_MailMan() override = default;
 
-    Item_e* clone() const override { return new Item_e(); }
-    Item_e* copy() const override { return new Item_e(this->id); }
+    Item_MailMan* clone() const override { return new Item_MailMan(); }
+    Item_MailMan* copy() const override { return new Item_MailMan(this->id); }
+    void useSymbol() override {}
+    std::string getAbility() override;
+};
+class Item_LovingMother : public Symbol {
+public:
+    Item_LovingMother() { icon = "Lm"; baseMoney = 0; id = createId(); rarity = Rare; }
+    explicit Item_LovingMother(int _id) { icon = "Lm", baseMoney = 0; id = _id; rarity = Rare; }
+    ~Item_LovingMother() override = default;
+
+    Item_LovingMother* clone() const override { return new Item_LovingMother(); }
+    Item_LovingMother* copy() const override { return new Item_LovingMother(this->id); }
     void useSymbol() override;
     std::string getAbility() override;
 };

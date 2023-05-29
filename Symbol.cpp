@@ -1,3 +1,4 @@
+#include "memtrace.h"
 #include "Symbol.h"
 
 int Symbol::createId() const {

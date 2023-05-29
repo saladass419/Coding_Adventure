@@ -1,6 +1,7 @@
 #ifndef ITEMSHOP_H
 #define ITEMSHOP_H
 
+#include "memtrace.h"
 #include "Neutral.h"
 #include "List.h"
 #include "SymbolShop.h"
@@ -18,7 +19,6 @@ public:
     ///Adds an item from the shop to the itemsList
     ///@param idx - the index of the item that needs to be added
 	void purchase(int idx) override;
-
     ///Calculates the chances of an item successfully landing in the store
     ///@param turn - state of the game in turns
     ///@param rarity - rarity of the item

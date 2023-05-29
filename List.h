@@ -1,6 +1,7 @@
 #ifndef LIST_H
 #define LIST_H
 
+#include "memtrace.h"
 #include "Symbol.h"
 #include "Item.h"
 #include "DerivedSymbols.h"
@@ -11,8 +12,8 @@ public:
 	int count; ///< The length of the symbol array (int)
 
     ///Default Constructor:
-    ///data = nullptr, count = 0
-	List() : data(nullptr), count(0) {}
+    ///data = NULL, count = 0
+	List() : data(NULL), count(0) {}
     ///Constructor that initializes both variables with new ones
     ///@param _data - an array of Symbol pointers
     ///@param _count - the length of the array

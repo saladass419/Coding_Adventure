@@ -1,6 +1,7 @@
 #ifndef DERIVEDSYMBOLS_H
 #define DERIVEDSYMBOLS_H
 
+#include "memtrace.h"
 #include "Symbol.h"
 
 class Symbol_Flower : public Symbol {
@@ -245,6 +246,18 @@ public:
     Symbol_TreasureKey* clone() const override { return new Symbol_TreasureKey(); }
     Symbol_TreasureKey* copy() const override { return new Symbol_TreasureKey(this->id); }
     void useSymbol() override;
+    void useSymbolWhenRemove() override {}
+    std::string getAbility() override;
+};
+class Symbol_Coin : public Symbol {
+public:
+    Symbol_Coin() { icon = "Co"; baseMoney = 1; id = createId(); rarity = Common; }
+    explicit Symbol_Coin(int _id) { icon = "Co", baseMoney = 1; id = _id; rarity = Common; }
+    ~Symbol_Coin() override = default;
+
+    Symbol_Coin* clone() const override { return new Symbol_Coin(); }
+    Symbol_Coin* copy() const override { return new Symbol_Coin(this->id); }
+    void useSymbol() override {}
     void useSymbolWhenRemove() override {}
     std::string getAbility() override;
 };

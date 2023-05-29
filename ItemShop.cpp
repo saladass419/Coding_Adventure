@@ -1,3 +1,4 @@
+#include "memtrace.h"
 #include "ItemShop.h"
 #include <iostream>
 
@@ -19,7 +20,7 @@ void ItemShop::fillShop(int turn) {
     Neutral::shuffle(temp.data, temp.count);
 	int added = 0;
 	for (int i = 0; i < temp.count; i++) {
-		if (getSymbolIcon(temp.data[i]->getIcon()) == nullptr) {
+		if (getSymbolIcon(temp.data[i]->getIcon()) == NULL) {
 			add(temp.data[i]->copy());
 			added++;
 		}

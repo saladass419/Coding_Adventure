@@ -1,6 +1,7 @@
 #ifndef BOARD_H
 #define BOARD_H
 
+#include "memtrace.h"
 #include "Neutral.h"
 #include "List.h"
 
@@ -35,7 +36,7 @@ public:
 	void clearBoard();
 
     ///Fills the list randomly from the player's symbolsList
-	void fillBoard();
+	void fillBoard(List& sourceList);
 };
 
 extern Board boardList;

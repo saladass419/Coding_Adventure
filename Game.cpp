@@ -1,4 +1,7 @@
+#include "memtrace.h"
 #include "Game.h"
+
+#define TESTING 0 ///0 = not testing, 1 = testing
 
 Player player;
 
@@ -15,6 +18,12 @@ Board boardList;
 
 int main() {
 	GameManager manager;
+
+#if TESTING == 1
+    manager.testingGame();
+    return 0;
+#endif
+
 	manager.generateStartingSymbols();
 	bool rentPayedSuccessfully;
 
@@ -47,7 +56,7 @@ int main() {
 				manager.symbolShopping();
                 Neutral::sleepfor(750);
 			}
-			system("clear");
+			//system("clear");
 		} while (rentPayedSuccessfully&&manager.getRentCounter()!=0);
 		if (!rentPayedSuccessfully) break;
 
@@ -133,25 +142,25 @@ long GameManager::countItemMoney() {
 }
 
 void GameManager::spinAnimation() const {
-	system("clear");
+	//system("clear");
 	for (int i = 0; i < 5; i++) {
 		printInfo();
-		boardList.fillBoard();
+		boardList.fillBoard(symbolsList);
 		boardList.printList();
         Neutral::sleepfor(300);
-		system("clear");
+		//system("clear");
 	}
 }
 
 void GameManager::spin() {
-	boardList.fillBoard();
+	boardList.fillBoard(symbolsList);
 	boardList.printList();
 	itemsList.useAll();
 	boardList.useAll();
 }
 
 void GameManager::symbolShopping() {
-	system("clear");
+	//system("clear");
 	printInfo();
 	std::cout << "|SYMBOL SHOPPING|" << std::endl;
 	displayCurrentSymbols();
@@ -181,7 +190,7 @@ void GameManager::symbolShopping() {
 }
 
 void GameManager::itemShopping() {
-	system("clear");
+	//system("clear");
 	printInfo();
 	std::cout << "|ITEM SHOPPING|" << std::endl;
 	displayCurrentItems();
@@ -232,7 +241,7 @@ bool GameManager::payRent() {
 }
 
 void GameManager::checkForRemove() {
-	system("clear");
+	//system("clear");
 	printInfo();
 	std::cout << "Press 'enter' to continue..." << std::endl << std::endl;
 	if (player.getToken("remove") > 0) std::cout << "Press 'r' to remove a symbol" << std::endl << std::endl;
@@ -260,4 +269,46 @@ void GameManager::checkForRemove() {
 
 void GameManager::printInfo() const {
 	std::cout << "Money in vault: " << player.getMoney() << "$ | Rent due in " << spinCounter << " spins ( " << rent << "$ ) | Payments left: " <<rentCounter<<" | Remover tokens : " << player.getToken("remove") << std::endl << std::endl;
+}
+
+///Testing the foundational functions of the game
+void GameManager::testingGame() {
+    List testSymbols;
+    TEST(List,){
+        Symbol* testSymbol = new Symbol;
+        testSymbols.add(testSymbol);
+        EXPECT_TRUE(testSymbols.data[0]->getIcon()=="  ") << "Symbol wasn't added";
+        EXPECT_EQ(1,testSymbols.count) << "Count is not correct";
+        EXPECT_EQ(0,testSymbols.find(testSymbol)) << "ID of symbol isn't correct";
+        EXPECT_TRUE(testSymbols.contains(testSymbol)) << "Contains function doesn't work";
+        testSymbols.remove(testSymbol);
+        EXPECT_EQ(0,testSymbols.count) << "Count is not correct";
+    }ENDM;
+    TEST(Board,){
+        Board testBoard;
+        testBoard.fillBoard(testSymbols);
+        int tempCounter = 0;
+        for(int i = 0; i < testBoard.count; i++){
+            if(testBoard.data[i]->getIcon()!="  ") tempCounter++;
+        }
+        EXPECT_EQ(tempCounter,testSymbols.count) << "FillBoard() didn't work";
+        testBoard.clearBoard();
+        tempCounter = 0;
+        for(int i = 0; i < testBoard.count; i++){
+            if(testBoard.data[i]->getIcon()!="  ") tempCounter++;
+        }
+        EXPECT_EQ(0,tempCounter) << "ClearBoard() didn't work";
+    }ENDM;
+    TEST(Symbol,){
+        Symbol* tempSymbol = new Symbol(6);
+        EXPECT_EQ(6,tempSymbol->getId()) << "Wrong ID";
+        Symbol* otherTempSymbol = tempSymbol->copy();
+        EXPECT_EQ(tempSymbol->getId(),otherTempSymbol->getId()) << "IDs don't match";
+        EXPECT_EQ(tempSymbol->getIcon(),otherTempSymbol->getIcon()) << "Icons don't match";
+        delete otherTempSymbol;
+        otherTempSymbol = tempSymbol->clone();
+        EXPECT_NE(tempSymbol->getId(),otherTempSymbol->getId()) << "IDs match";
+        delete tempSymbol;
+        delete otherTempSymbol;
+    }ENDM;
 }

@@ -1,3 +1,4 @@
+#include "memtrace.h"
 #include "SymbolShop.h"
 #include <iostream>
 
@@ -52,7 +53,7 @@ void SymbolShop::fillShop(int turn) {
 
 	int added = 0;
 	for (int i = 0; i < temp.count; i++) {
-		if (getSymbolIcon(temp.data[i]->getIcon()) == nullptr) {
+		if (getSymbolIcon(temp.data[i]->getIcon()) == NULL) {
 			add(temp.data[i]->copy());
 			added++;
 		}

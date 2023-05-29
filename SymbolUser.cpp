@@ -1,3 +1,4 @@
+#include "memtrace.h"
 #include "Board.h"
 #include <iostream>
 

@@ -1,3 +1,4 @@
+#include "memtrace.h"
 #include "Neutral.h"
 
 bool Neutral::isAlwaysAdjacent = false;

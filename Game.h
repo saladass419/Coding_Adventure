@@ -1,6 +1,8 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include "memtrace.h"
+#include "gtest_lite.h"
 #include "Neutral.h"
 #include "Player.h"
 #include "Item.h"
@@ -25,6 +27,7 @@ public:
 	GameManager() : rent(50), rentCounter(10), spinCounter(5) { setSymbolTypes(); setItemTypes(); }
 	~GameManager() = default;
 
+    void testingGame();
     ///Returns the spinCounter value
     ///@return amount of spins left (int)
 	int getSpinCounter() const { return spinCounter; }
@@ -97,23 +100,25 @@ void GameManager::setSymbolTypes() {
     symbolTypes.add(new Symbol_Granny);
     symbolTypes.add(new Symbol_TreasureChest);
     symbolTypes.add(new Symbol_TreasureKey);
+    symbolTypes.add(new Symbol_Coin);
 
 }
 
 void GameManager::setItemTypes() {
-	itemTypes.add(new Item_a);
-	itemTypes.add(new Item_b);
-	itemTypes.add(new Item_c);
-	itemTypes.add(new Item_d);
-    itemTypes.add(new Item_e);
+	itemTypes.add(new Item_TinyPlace);
+	itemTypes.add(new Item_LeafClover);
+	itemTypes.add(new Item_Timer);
+	itemTypes.add(new Item_CoinCollector);
+    itemTypes.add(new Item_MailMan);
+    itemTypes.add(new Item_LovingMother);
+
 }
 
 void GameManager::generateStartingSymbols() {
 	symbolsList.add(symbolTypes.getSymbolIcon("Fl")->clone());
 	symbolsList.add(symbolTypes.getSymbolIcon("Wi")->clone());
 	symbolsList.add(symbolTypes.getSymbolIcon("Do")->clone());
-
-	symbolsList.add(symbolTypes.getSymbolIcon("Tc")->clone());
+	symbolsList.add(symbolTypes.getSymbolIcon("Co")->clone());
 	symbolsList.add(symbolTypes.getSymbolIcon("Tk")->clone());
 }
 

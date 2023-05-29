@@ -1,3 +1,4 @@
+#include "memtrace.h"
 #include "Player.h"
 #include <iostream>
 

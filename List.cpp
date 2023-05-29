@@ -1,8 +1,9 @@
+#include "memtrace.h"
 #include "List.h"
 #include <iostream>
 
 void List::add(Symbol* newData) {
-	if (newData == nullptr) return;
+	if (newData == NULL) return;
 	
 	auto** temp = new Symbol * [count + 1];
 	for (int i = 0; i < count; i++) {
@@ -66,14 +67,14 @@ Symbol* List::find(int id) const {
 	for (int i = 0; i < count; i++) {
 		if (data[i]->getId() == id) return data[i];
 	}
-	return nullptr;
+	return NULL;
 }
 
 Symbol* List::getSymbolIcon(const std::string& _icon) const {
 	for (int i = 0; i < count; i++) {
 		if (data[i]->getIcon() == _icon) return data[i];
 	}
-	return nullptr;
+	return NULL;
 }
 
 
