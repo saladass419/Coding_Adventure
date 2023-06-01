@@ -111,7 +111,7 @@ public:
 	Symbol_Bartender* clone() const override { return new Symbol_Bartender(); }
 	Symbol_Bartender* copy() const override { return new Symbol_Bartender(this->id); }
 	void useSymbol() override;
-	void useSymbolWhenRemove() override;
+	void useSymbolWhenRemove() override {}
 	std::string getAbility() override;
 };
 class Symbol_Grape : public Symbol {
@@ -147,7 +147,7 @@ public:
     Symbol_Sommelier* clone() const override { return new Symbol_Sommelier(); }
     Symbol_Sommelier* copy() const override { return new Symbol_Sommelier(this->id); }
     void useSymbol() override;
-    void useSymbolWhenRemove() override;
+    void useSymbolWhenRemove() override {}
     std::string getAbility() override;
 };
 

@@ -18,7 +18,6 @@ Board boardList;
 
 int main() {
 	GameManager manager;
-
 #if TESTING == 1
     manager.testingGame();
     return 0;
@@ -56,15 +55,15 @@ int main() {
 				manager.symbolShopping();
                 Neutral::sleepfor(750);
 			}
-			//system("clear");
+			system("clear");
 		} while (rentPayedSuccessfully&&manager.getRentCounter()!=0);
 		if (!rentPayedSuccessfully) break;
 
 		std::cout << "Congratulations! You finished the game!\nIf you want to continue in endless mode, type 'yes'" << std::endl;
 		std::string input;
 		std::cin >> input;
-		if (input == "yes" || input == "Yes") { chances = 0; }
-		else { chances = 1; }
+		if (input == "yes" || input == "Yes") { chances = -1; }
+		else { break; }
 	}
 	return 0;
 }
@@ -142,13 +141,13 @@ long GameManager::countItemMoney() {
 }
 
 void GameManager::spinAnimation() const {
-	//system("clear");
+	system("clear");
 	for (int i = 0; i < 5; i++) {
 		printInfo();
 		boardList.fillBoard(symbolsList);
 		boardList.printList();
         Neutral::sleepfor(300);
-		//system("clear");
+		system("clear");
 	}
 }
 
@@ -160,7 +159,7 @@ void GameManager::spin() {
 }
 
 void GameManager::symbolShopping() {
-	//system("clear");
+	system("clear");
 	printInfo();
 	std::cout << "|SYMBOL SHOPPING|" << std::endl;
 	displayCurrentSymbols();
@@ -190,7 +189,7 @@ void GameManager::symbolShopping() {
 }
 
 void GameManager::itemShopping() {
-	//system("clear");
+	system("clear");
 	printInfo();
 	std::cout << "|ITEM SHOPPING|" << std::endl;
 	displayCurrentItems();
@@ -241,7 +240,7 @@ bool GameManager::payRent() {
 }
 
 void GameManager::checkForRemove() {
-	//system("clear");
+	system("clear");
 	printInfo();
 	std::cout << "Press 'enter' to continue..." << std::endl << std::endl;
 	if (player.getToken("remove") > 0) std::cout << "Press 'r' to remove a symbol" << std::endl << std::endl;
