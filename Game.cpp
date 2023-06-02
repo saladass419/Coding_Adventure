@@ -1,7 +1,7 @@
 #include "memtrace.h"
 #include "Game.h"
 
-#define TESTING 0 ///0 = not testing, 1 = testing
+#define TESTING 1 ///0 = not testing, 1 = testing
 
 Player player;
 
@@ -27,9 +27,10 @@ int main() {
 	bool rentPayedSuccessfully;
 
 	std::cout<<"Press any key to start"<<std::endl;
+    int ch;
 	for(int chances = 0; chances < 1; chances++){
 		do {
-			while ((getchar()) != '\n' && getchar() != EOF) {}
+			while ((ch = getchar()) != '\n' && (ch = getchar()) != EOF) {}
 			manager.checkForRemove();
 
 			manager.spinAnimation();
@@ -55,7 +56,7 @@ int main() {
 				manager.symbolShopping();
                 Neutral::sleepfor(750);
 			}
-			system("clear");
+			//system("clear");
 		} while (rentPayedSuccessfully&&manager.getRentCounter()!=0);
 		if (!rentPayedSuccessfully) break;
 
@@ -141,13 +142,13 @@ long GameManager::countItemMoney() {
 }
 
 void GameManager::spinAnimation() const {
-	system("clear");
+	//system("clear");
 	for (int i = 0; i < 5; i++) {
 		printInfo();
 		boardList.fillBoard(symbolsList);
 		boardList.printList();
         Neutral::sleepfor(300);
-		system("clear");
+		//system("clear");
 	}
 }
 
@@ -159,7 +160,7 @@ void GameManager::spin() {
 }
 
 void GameManager::symbolShopping() {
-	system("clear");
+	//system("clear");
 	printInfo();
 	std::cout << "|SYMBOL SHOPPING|" << std::endl;
 	displayCurrentSymbols();
@@ -189,7 +190,7 @@ void GameManager::symbolShopping() {
 }
 
 void GameManager::itemShopping() {
-	system("clear");
+	//system("clear");
 	printInfo();
 	std::cout << "|ITEM SHOPPING|" << std::endl;
 	displayCurrentItems();
@@ -240,7 +241,7 @@ bool GameManager::payRent() {
 }
 
 void GameManager::checkForRemove() {
-	system("clear");
+	//system("clear");
 	printInfo();
 	std::cout << "Press 'enter' to continue..." << std::endl << std::endl;
 	if (player.getToken("remove") > 0) std::cout << "Press 'r' to remove a symbol" << std::endl << std::endl;
